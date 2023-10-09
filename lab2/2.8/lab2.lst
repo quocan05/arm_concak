@@ -1,0 +1,185 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000 20001000        DCD              0x20001000
+    3 00000004 00000000        DCD              Reset_Handler
+    4 00000008                 ALIGN
+    5 00000008 00000003 
+              00000004 
+              00000005 matran  DCD              3,4,5
+    6 00000014 00000006 
+              00000005 
+              00000004         DCD              6,5,4
+    7 00000020 00000003 
+              00000004 
+              00000005         DCD              3,4,5
+    8 0000002C         
+    9 0000002C         
+   10 0000002C                 AREA             RESET, DATA, READWRITE
+   11 0000002C 00000000 
+                       Tong    DCD              0
+   12 00000030         
+   13 00000030                 AREA             MYCODE, CODE, READONLY
+   14 00000000                 EXPORT           Reset_Handler
+   15 00000000                 ENTRY
+   16 00000000         
+   17 00000000         Reset_Handler
+   18 00000000         ;============================
+   19 00000000 00000009 
+                       soPhantu
+                               EQU              9
+   20 00000000 490D            LDR              R1,=matran
+   21 00000002 F04F 0209       LDR              R2,=soPhantu
+   22 00000006 F04F 0000       MOV              R0,#0       ;tong
+   23 0000000A         loop
+   24 0000000A 2A00            CMP              R2,#0
+   25 0000000C D010            BEQ              Thoat
+   26 0000000E         
+   27 0000000E F851 3B04       LDR              R3,[R1],#4
+   28 00000012 F04F 0405       MOV              R4,#5
+   29 00000016         Chia5
+   30 00000016 42A3            CMP              R3,R4
+   31 00000018 D003            BEQ              ChiaHet
+   32 0000001A DB06            BLT              Khongchiahet
+   33 0000001C F104 0405       ADD              R4,#5
+   34 00000020 E7F9            B                Chia5
+   35 00000022         ChiaHet
+   36 00000022 4418            ADD              R0,R3
+   37 00000024 F1A2 0201       SUB              R2,#1
+   38 00000028 E7EF            B                loop
+   39 0000002A         Khongchiahet
+   40 0000002A F1A2 0201       SUB              R2,#1
+   41 0000002E E7EC            B                loop
+   42 00000030         Thoat
+   43 00000030 4E02            LDR              R6,=Tong
+   44 00000032 6030            STR              R0,[R6]
+   45 00000034 DF11            SWI              &11
+   46 00000036         
+   47 00000036                 END
+              00 00 00000000 
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab2.d
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+ -o.\lab2.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
+c\ST\STM32F10x --list=.\lab2.lst lab2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file lab2.s
+   Uses
+      None
+Comment: RESET unused
+Tong 0000002C
+
+Symbol: Tong
+   Definitions
+      At line 11 in file lab2.s
+   Uses
+      At line 43 in file lab2.s
+Comment: Tong used once
+matran 00000008
+
+Symbol: matran
+   Definitions
+      At line 5 in file lab2.s
+   Uses
+      At line 20 in file lab2.s
+Comment: matran used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Chia5 00000016
+
+Symbol: Chia5
+   Definitions
+      At line 29 in file lab2.s
+   Uses
+      At line 34 in file lab2.s
+Comment: Chia5 used once
+ChiaHet 00000022
+
+Symbol: ChiaHet
+   Definitions
+      At line 35 in file lab2.s
+   Uses
+      At line 31 in file lab2.s
+Comment: ChiaHet used once
+Khongchiahet 0000002A
+
+Symbol: Khongchiahet
+   Definitions
+      At line 39 in file lab2.s
+   Uses
+      At line 32 in file lab2.s
+Comment: Khongchiahet used once
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 13 in file lab2.s
+   Uses
+      None
+Comment: MYCODE unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 17 in file lab2.s
+   Uses
+      At line 3 in file lab2.s
+      At line 14 in file lab2.s
+
+Thoat 00000030
+
+Symbol: Thoat
+   Definitions
+      At line 42 in file lab2.s
+   Uses
+      At line 25 in file lab2.s
+Comment: Thoat used once
+loop 0000000A
+
+Symbol: loop
+   Definitions
+      At line 23 in file lab2.s
+   Uses
+      At line 38 in file lab2.s
+      At line 41 in file lab2.s
+
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+soPhantu 00000009
+
+Symbol: soPhantu
+   Definitions
+      At line 19 in file lab2.s
+   Uses
+      At line 21 in file lab2.s
+Comment: soPhantu used once
+1 symbol
+343 symbols in table

@@ -1,0 +1,186 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Khai bao doan du lieu
+    2 00000000                 AREA             RESET, DATA, READONLY
+    3 00000000 20001000        DCD              0x20001000  ; stack pointer val
+                                                            ue when stack is em
+                                                            pty
+    4 00000004 00000000        DCD              Reset_Handler ; reset vector
+    5 00000008         
+    6 00000008         ; Khai bao doan ma lenh
+    7 00000008                 AREA             MYCODE, CODE, READONLY
+    8 00000000         
+    9 00000000                 ENTRY                        ;Khai bao diem vao 
+                                                            chuong trinh
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000         
+   12 00000000         Reset_Handler
+   13 00000000         ;-------------------------------------------------------
+                       ------------------
+   14 00000000         ; Bat dau doan code (Diem vao cua chuong trinh)---------
+                       ------------------
+   15 00000000         ;tìm ucln
+   16 00000000 0000000C 
+                       X       EQU              12
+   17 00000000 00000024 
+                       Y       EQU              36
+   18 00000000 F04F 0000       MOV              R0,#0
+   19 00000004 F04F 010C       LDR              R1,=X
+   20 00000008 F04F 0224       LDR              R2,=Y
+   21 0000000C         
+   22 0000000C         
+   23 0000000C 2900            CMP              R1,#0
+   24 0000000E DD16            BLE              thoat
+   25 00000010 2A00            CMP              R2,#0
+   26 00000012 DD14            BLE              thoat
+   27 00000014         looptru
+   28 00000014 4291            CMP              R1,R2       ;kiem tra
+   29 00000016 DB04            BLT              hoandoi
+   30 00000018         
+   31 00000018         tieptuc
+   32 00000018 EBA1 0102       SUB              R1,R2
+   33 0000001C 2900            CMP              R1,#0
+   34 0000001E D004            BEQ              ketqua
+   35 00000020 E7F8            B                looptru
+   36 00000022         
+   37 00000022         hoandoi
+   38 00000022 4614            MOV              R4,R2
+   39 00000024 460A            MOV              R2,R1
+   40 00000026 4621            MOV              R1,R4
+   41 00000028 E7F6            B                tieptuc
+   42 0000002A         ketqua
+   43 0000002A 4613            MOV              R3,R2
+   44 0000002C         ;ket thuc ucln
+   45 0000002C F04F 010C       LDR              R1,=X
+   46 00000030 F04F 0224       LDR              R2,=Y
+   47 00000034 FB01 F002       MUL              R0,R1,R2
+   48 00000038 FBB0 F4F3       UDIV             R4,R0,R3
+   49 0000003C DF11            SWI              &11
+   50 0000003E         
+   51 0000003E         thoat
+   52 0000003E F04F 0300       MOV              R3,#0
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   53 00000042 F04F 0400       MOV              R4,#0
+   54 00000046 DF11            SWI              &11
+   55 00000048         ;-------------------------------------------------------
+                       ------------------
+   56 00000048                 END                          ;Ket thuc chuong tr
+                                                            inhf
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab1.d
+ -o.\lab1.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
+c\ST\STM32F10x --list=.\lab1.lst lab1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 2 in file lab1.s
+   Uses
+      None
+Comment: RESET unused
+1 symbol
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 7 in file lab1.s
+   Uses
+      None
+Comment: MYCODE unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file lab1.s
+   Uses
+      At line 4 in file lab1.s
+      At line 10 in file lab1.s
+
+hoandoi 00000022
+
+Symbol: hoandoi
+   Definitions
+      At line 37 in file lab1.s
+   Uses
+      At line 29 in file lab1.s
+Comment: hoandoi used once
+ketqua 0000002A
+
+Symbol: ketqua
+   Definitions
+      At line 42 in file lab1.s
+   Uses
+      At line 34 in file lab1.s
+Comment: ketqua used once
+looptru 00000014
+
+Symbol: looptru
+   Definitions
+      At line 27 in file lab1.s
+   Uses
+      At line 35 in file lab1.s
+Comment: looptru used once
+thoat 0000003E
+
+Symbol: thoat
+   Definitions
+      At line 51 in file lab1.s
+   Uses
+      At line 24 in file lab1.s
+      At line 26 in file lab1.s
+
+tieptuc 00000018
+
+Symbol: tieptuc
+   Definitions
+      At line 31 in file lab1.s
+   Uses
+      At line 41 in file lab1.s
+Comment: tieptuc used once
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+X 0000000C
+
+Symbol: X
+   Definitions
+      At line 16 in file lab1.s
+   Uses
+      At line 19 in file lab1.s
+      At line 45 in file lab1.s
+
+Y 00000024
+
+Symbol: Y
+   Definitions
+      At line 17 in file lab1.s
+   Uses
+      At line 20 in file lab1.s
+      At line 46 in file lab1.s
+
+2 symbols
+340 symbols in table

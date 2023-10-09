@@ -1,0 +1,127 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab1\1.2\lab1.2.uvproj
+Project File Date:  10/05/2023
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling lab1.s...
+lab1.s(1): error: A1163E: Unknown opcode RESET, , expecting opcode or Macro
+lab1.s(2): error: A1105E: Area directive missing
+lab1.s(2): warning: A1088W: Faking declaration of area AREA |$$$$$$$|
+".\lab1.2" - 2 Errors, 1 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling lab1.s...
+lab1.s(15): error: A1163E: Unknown opcode R0,#0 , expecting opcode or Macro
+".\lab1.2" - 1 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling lab1.s...
+lab1.s(17): error: A1516E: Bad symbol 'N', not defined or external
+".\lab1.2" - 1 Errors, 0 Warning(s).
+Target not created
+assembling lab1.s...
+"lab1.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab1.2: Error: L6204E: Entry point (0x08000008) does not point to an instruction.
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+".\lab1.2" - 1 Errors, 1 Warning(s).
+Target not created
+Rebuild target 'Target 1'
+assembling lab1.s...
+linking...
+.\lab1.2: Error: L6204E: Entry point (0x08000008) does not point to an instruction.
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+".\lab1.2" - 1 Errors, 1 Warning(s).
+Target not created
+assembling lab1.s...
+"lab1.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab1.2: Error: L6204E: Entry point (0x08000008) does not point to an instruction.
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+".\lab1.2" - 1 Errors, 1 Warning(s).
+Target not created
+assembling lab1.s...
+"lab1.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab1.2: Error: L6204E: Entry point (0x08000008) does not point to an instruction.
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+".\lab1.2" - 1 Errors, 1 Warning(s).
+Target not created
+Build target 'Target 1'
+linking...
+.\lab1.2: Error: L6204E: Entry point (0x08000008) does not point to an instruction.
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+".\lab1.2" - 1 Errors, 1 Warning(s).
+Target not created
+Rebuild target 'Target 1'
+assembling lab1.s...
+linking...
+.\lab1.2: Error: L6204E: Entry point (0x08000008) does not point to an instruction.
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+".\lab1.2" - 1 Errors, 1 Warning(s).
+Target not created
+assembling lab1.s...
+"lab1.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab1.2: Error: L6204E: Entry point (0x08000008) does not point to an instruction.
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+".\lab1.2" - 1 Errors, 1 Warning(s).
+Target not created
+assembling lab1.s...
+lab1.s(1): error: A1163E: Unknown opcode RESET, , expecting opcode or Macro
+lab1.s(2): error: A1105E: Area directive missing
+lab1.s(2): warning: A1088W: Faking declaration of area AREA |$$$$$$$|
+"lab1.s" - 2 Errors, 1 Warning(s).
+assembling lab1.s...
+lab1.s(1): error: A1163E: Unknown opcode RESET, , expecting opcode or Macro
+lab1.s(2): error: A1105E: Area directive missing
+lab1.s(2): warning: A1088W: Faking declaration of area AREA |$$$$$$$|
+"lab1.s" - 2 Errors, 1 Warning(s).
+assembling lab1.s...
+lab1.s(1): error: A1163E: Unknown opcode RESET, , expecting opcode or Macro
+lab1.s(2): error: A1105E: Area directive missing
+lab1.s(2): warning: A1088W: Faking declaration of area AREA |$$$$$$$|
+"lab1.s" - 2 Errors, 1 Warning(s).
+assembling lab1.s...
+lab1.s(1): error: A1163E: Unknown opcode RESET, , expecting opcode or Macro
+lab1.s(2): error: A1105E: Area directive missing
+lab1.s(2): warning: A1088W: Faking declaration of area AREA |$$$$$$$|
+"lab1.s" - 2 Errors, 1 Warning(s).
+assembling lab1.s...
+lab1.s(4): error: A1516E: Bad symbol 'Reset_Handler', not defined or external
+lab1.s(16): error: A1516E: Bad symbol 'N', not defined or external
+"lab1.s" - 2 Errors, 0 Warning(s).
+assembling lab1.s...
+lab1.s(17): error: A1150E: Bad symbol, not defined or external
+"lab1.s" - 1 Errors, 0 Warning(s).
+assembling lab1.s...
+lab1.s(4): error: A1516E: Bad symbol 'Reset_Handler', not defined or external
+"lab1.s" - 1 Errors, 0 Warning(s).
+assembling lab1.s...
+"lab1.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=48 RO-data=8 RW-data=0 ZI-data=0  
+".\lab1.2" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab1.s...
+linking...
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=48 RO-data=8 RW-data=0 ZI-data=0  
+".\lab1.2" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab1.s...
+linking...
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=48 RO-data=8 RW-data=0 ZI-data=0  
+".\lab1.2" - 0 Errors, 1 Warning(s).

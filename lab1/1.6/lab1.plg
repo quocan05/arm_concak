@@ -1,0 +1,56 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab1\1.6\lab1.6.uvproj
+Project File Date:  10/05/2023
+
+<h2>Output:</h2>
+assembling lab1.s...
+lab1.s(39): error: A1163E: Unknown opcode nhan , expecting opcode or Macro
+"lab1.s" - 1 Errors, 0 Warning(s).
+Build target 'Target 1'
+assembling lab1.s...
+linking...
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=8 RW-data=0 ZI-data=0  
+".\lab1.6" - 0 Errors, 1 Warning(s).
+assembling lab1.s...
+"lab1.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=8 RW-data=0 ZI-data=0  
+".\lab1.6" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab1.s...
+linking...
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=8 RW-data=0 ZI-data=0  
+".\lab1.6" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab1.s...
+linking...
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=8 RW-data=0 ZI-data=0  
+".\lab1.6" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab1.s...
+lab1.s(20): error: A1150E: Bad symbol, not defined or external
+lab1.s(21): error: A1150E: Bad symbol, not defined or external
+lab1.s(23): error: A1150E: Bad symbol, not defined or external
+".\lab1.6" - 3 Errors, 0 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling lab1.s...
+linking...
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=40 RO-data=8 RW-data=0 ZI-data=0  
+".\lab1.6" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab1.s...
+linking...
+.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=40 RO-data=8 RW-data=0 ZI-data=0  
+".\lab1.6" - 0 Errors, 1 Warning(s).

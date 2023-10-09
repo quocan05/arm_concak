@@ -1,0 +1,160 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET , DATA ,READONLY
+    2 00000000 20001000        DCD              0x20001000  ; do dai du lieu la
+                                                             bao nhieu
+    3 00000004 00000000        DCD              start       ; 
+    4 00000008                 ALIGN
+    5 00000008         ; khai bao vung nho 
+    6 00000008         
+    7 00000008 00000001 
+              00000002 
+              00000003 MATRAN  DCD              1,2,3
+    8 00000014 00000003 
+              00000002 
+              00000001         DCD              3,2,1
+    9 00000020 00000001 
+              00000002 
+              00000003         DCD              1,2,3
+   10 0000002C         
+   11 0000002C         ;khai bao vung ma lenh 
+   12 0000002C                 AREA             KQ, DATA ,READWRITE
+   13 00000000 00000000 
+                       Tong    DCD              0
+   14 00000004                 AREA             mycode, CODE ,READONLY
+   15 00000000                 EXPORT           start
+   16 00000000                 ENTRY
+   17 00000000         start
+   18 00000000         ;===================================
+   19 00000000 00000009 
+                       sopt    EQU              9
+   20 00000000 4909            LDR              R1,=MATRAN
+   21 00000002 F04F 0209       LDR              R2,=sopt
+   22 00000006 F04F 0300       MOV              R3,#0
+   23 0000000A 58CC            LDR              R4,[R1,R3]
+   24 0000000C F04F 0000       MOV              R0,#0
+   25 00000010         loop
+   26 00000010 2A00            CMP              R2,#0
+   27 00000012 D006            BEQ              thoat
+   28 00000014 58CC            LDR              R4,[R1,R3]
+   29 00000016 4420            ADD              R0,R4
+   30 00000018 F103 0304       ADD              R3,#4
+   31 0000001C F1A2 0201       SUB              R2,#1
+   32 00000020 E7F6            B                loop
+   33 00000022         
+   34 00000022         thoat
+   35 00000022 4D02            LDR              R5,=Tong
+   36 00000024 6028            STR              R0,[R5]
+   37 00000026 DF11            SWI              &11
+   38 00000028                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab2.d
+ -o.\lab2.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
+c\ST\STM32F10x --list=.\lab2.lst lab2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MATRAN 00000008
+
+Symbol: MATRAN
+   Definitions
+      At line 7 in file lab2.s
+   Uses
+      At line 20 in file lab2.s
+Comment: MATRAN used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file lab2.s
+   Uses
+      None
+Comment: RESET unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+KQ 00000000
+
+Symbol: KQ
+   Definitions
+      At line 12 in file lab2.s
+   Uses
+      None
+Comment: KQ unused
+Tong 00000000
+
+Symbol: Tong
+   Definitions
+      At line 13 in file lab2.s
+   Uses
+      At line 35 in file lab2.s
+Comment: Tong used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+loop 00000010
+
+Symbol: loop
+   Definitions
+      At line 25 in file lab2.s
+   Uses
+      At line 32 in file lab2.s
+Comment: loop used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 14 in file lab2.s
+   Uses
+      None
+Comment: mycode unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 17 in file lab2.s
+   Uses
+      At line 3 in file lab2.s
+      At line 15 in file lab2.s
+
+thoat 00000022
+
+Symbol: thoat
+   Definitions
+      At line 34 in file lab2.s
+   Uses
+      At line 27 in file lab2.s
+Comment: thoat used once
+4 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+sopt 00000009
+
+Symbol: sopt
+   Definitions
+      At line 19 in file lab2.s
+   Uses
+      At line 21 in file lab2.s
+Comment: sopt used once
+1 symbol
+341 symbols in table

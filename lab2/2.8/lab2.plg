@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\LAB2\2.8\lab2.8.uvproj
+Project File Date:  10/09/2023
+
+<h2>Output:</h2>
+assembling lab2.s...
+lab2.s(47): warning: A1581W: Added 2 bytes of padding at address 0x36
+"lab2.s" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=64 RO-data=48 RW-data=0 ZI-data=0  
+".\lab2.8" - 0 Errors, 1 Warning(s).
+Rebuild target 'Target 1'
+assembling lab2.s...
+lab2.s(47): warning: A1581W: Added 2 bytes of padding at address 0x36
+linking...
+.\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=64 RO-data=48 RW-data=0 ZI-data=0  
+".\lab2.8" - 0 Errors, 2 Warning(s).

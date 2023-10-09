@@ -1,0 +1,149 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ; Khai bao doan du lieu
+    2 00000000                 AREA             RESET, DATA, READONLY
+    3 00000000 20001000        DCD              0x20001000  ; stack pointer val
+                                                            ue when stack is em
+                                                            pty
+    4 00000004 00000000        DCD              start       ; reset vector
+    5 00000008         
+    6 00000008         ; Khai bao doan ma lenh
+    7 00000008                 AREA             MYCODE, CODE, READONLY
+    8 00000000         
+    9 00000000                 ENTRY                        ;Khai bao diem vao 
+                                                            chuong trinh
+   10 00000000                 EXPORT           start
+   11 00000000         
+   12 00000000         start
+   13 00000000         ;======================
+   14 00000000 0000000A 
+                       N       EQU              10          ;
+   15 00000000 F04F 0000       MOV              R0,#0       ;TONG CHAN R0 = 0
+   16 00000004 F04F 0100       MOV              R1,#0       ;TONG LE R1 =0
+   17 00000008 F04F 020A       LDR              R2, =N      ; R2 = 10
+   18 0000000C F04F 0301       MOV              R3,#1       ; R3 = 1
+   19 00000010 F04F 0402       MOV              R4,#2       ; R4 = 2
+   20 00000014         
+   21 00000014         
+   22 00000014         loopsole
+   23 00000014 4293            CMP              R3,R2       ;so sanh R3 voi R2
+   24 00000016 DC03            BGT              ketthuctongle 
+                                                            ; Ket thuc tong le
+   25 00000018 4419            ADD              R1,R3       ; R1 = R1 +R3
+   26 0000001A F103 0302       ADD              R3,#2       ; R3 = R3 + 2
+   27 0000001E E7F9            B                loopsole
+   28 00000020         ketthuctongle
+   29 00000020         loopsochan
+   30 00000020 4294            CMP              R4,R2       ;so sanh R4 voi R2
+   31 00000022 DC03            BGT              ketthuctongchan 
+                                                            ; Ket thuc tong le
+   32 00000024 4420            ADD              R0,R4       ; R1 = R1 +R4
+   33 00000026 F104 0402       ADD              R4,#2       ; R4 = R4 + 2
+   34 0000002A E7F9            B                loopsochan
+   35 0000002C         ketthuctongchan
+   36 0000002C E7FE    stop    B                stop
+   37 0000002E         
+   38 0000002E         ;======================
+   39 0000002E                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab1.d
+ -o.\lab1.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
+c\ST\STM32F10x --list=.\lab1.lst lab1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 2 in file lab1.s
+   Uses
+      None
+Comment: RESET unused
+1 symbol
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 7 in file lab1.s
+   Uses
+      None
+Comment: MYCODE unused
+ketthuctongchan 0000002C
+
+Symbol: ketthuctongchan
+   Definitions
+      At line 35 in file lab1.s
+   Uses
+      At line 31 in file lab1.s
+Comment: ketthuctongchan used once
+ketthuctongle 00000020
+
+Symbol: ketthuctongle
+   Definitions
+      At line 28 in file lab1.s
+   Uses
+      At line 24 in file lab1.s
+Comment: ketthuctongle used once
+loopsochan 00000020
+
+Symbol: loopsochan
+   Definitions
+      At line 29 in file lab1.s
+   Uses
+      At line 34 in file lab1.s
+Comment: loopsochan used once
+loopsole 00000014
+
+Symbol: loopsole
+   Definitions
+      At line 22 in file lab1.s
+   Uses
+      At line 27 in file lab1.s
+Comment: loopsole used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 12 in file lab1.s
+   Uses
+      At line 4 in file lab1.s
+      At line 10 in file lab1.s
+
+stop 0000002C
+
+Symbol: stop
+   Definitions
+      At line 36 in file lab1.s
+   Uses
+      At line 36 in file lab1.s
+Comment: stop used once
+7 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+N 0000000A
+
+Symbol: N
+   Definitions
+      At line 14 in file lab1.s
+   Uses
+      At line 17 in file lab1.s
+Comment: N used once
+1 symbol
+339 symbols in table
