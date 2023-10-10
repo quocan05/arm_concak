@@ -1,0 +1,22 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab3\3.1\lab3.uvproj
+Project File Date:  <unknown>
+
+<h2>Output:</h2>
+assembling lab3.s...
+"lab3.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab3.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=28 RO-data=12 RW-data=0 ZI-data=0  
+".\lab3.axf" - 0 Errors, 1 Warning(s).
+Rebuild target 'Target 1'
+assembling lab3.s...
+linking...
+.\lab3.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=28 RO-data=12 RW-data=0 ZI-data=0  
+".\lab3.axf" - 0 Errors, 1 Warning(s).

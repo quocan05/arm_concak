@@ -1,0 +1,133 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 AREA             RESET, DATA,READONLY
+    3 00000000 20001000        DCD              0x20001000
+    4 00000004 00000000        DCD              start
+    5 00000008                 ALIGN
+    6 00000008 00000004 
+                       X       DCD              4
+    7 0000000C 00000003 
+                       N       DCD              3
+    8 00000010         
+    9 00000010                 AREA             mycode,CODE,READONLY
+   10 00000000                 EXPORT           start
+   11 00000000                 ENTRY
+   12 00000000         start
+   13 00000000         ;======================
+   14 00000000 F04F 0001       MOV              R0,#1
+   15 00000004 F85F 1004       LDR              R1,X
+   16 00000008 F85F 2004       LDR              R2,N
+   17 0000000C B407            PUSH{R0,R1,R2}
+   18 0000000E F7FF FFFE       BL               CT1
+   19 00000012 E7FE    stop    B                stop
+   20 00000014         CT1     PROC
+   21 00000014 BC07            POP{R0,R1,R2}
+   22 00000016 F04F 0301       MOV              R3,#1
+   23 0000001A         loop
+   24 0000001A 4293            CMP              R3,R2
+   25 0000001C DC04            BGT              thoat
+   26 0000001E FB00 F001       MUL              R0,R1       ;R0 = R0 X R1 = 1X5
+                                                            X5X5 5^3
+   27 00000022 F103 0301       ADD              R3,#1
+   28 00000026 E7F8            B                loop
+   29 00000028         thoat
+   30 00000028 4770            BX               LR
+   31 0000002A                 ENDP
+   32 0000002A         ;======================
+   33 0000002A                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab3.d
+ -o.\lab3.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
+c\ST\STM32F10x --list=.\lab3.lst lab3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+N 0000000C
+
+Symbol: N
+   Definitions
+      At line 7 in file lab3.s
+   Uses
+      At line 16 in file lab3.s
+Comment: N used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 2 in file lab3.s
+   Uses
+      None
+Comment: RESET unused
+X 00000008
+
+Symbol: X
+   Definitions
+      At line 6 in file lab3.s
+   Uses
+      At line 15 in file lab3.s
+Comment: X used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CT1 00000014
+
+Symbol: CT1
+   Definitions
+      At line 20 in file lab3.s
+   Uses
+      At line 18 in file lab3.s
+Comment: CT1 used once
+loop 0000001A
+
+Symbol: loop
+   Definitions
+      At line 23 in file lab3.s
+   Uses
+      At line 28 in file lab3.s
+Comment: loop used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 9 in file lab3.s
+   Uses
+      None
+Comment: mycode unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 12 in file lab3.s
+   Uses
+      At line 4 in file lab3.s
+      At line 10 in file lab3.s
+
+stop 00000012
+
+Symbol: stop
+   Definitions
+      At line 19 in file lab3.s
+   Uses
+      At line 19 in file lab3.s
+Comment: stop used once
+thoat 00000028
+
+Symbol: thoat
+   Definitions
+      At line 29 in file lab3.s
+   Uses
+      At line 25 in file lab3.s
+Comment: thoat used once
+6 symbols
+339 symbols in table

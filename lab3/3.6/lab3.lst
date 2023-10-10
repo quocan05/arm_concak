@@ -1,0 +1,137 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Vi?t chuong trình tính t?ng 1 + x2
+    2 00000000         ;+ x3
+    3 00000000         ;+ … + xn
+    4 00000000         ;.
+    5 00000000                 AREA             RESET, DATA,READONLY
+    6 00000000 20001000        DCD              0x20001000
+    7 00000004 00000000        DCD              start
+    8 00000008                 ALIGN
+    9 00000008 00000004 
+                       X       DCD              4
+   10 0000000C 00000003 
+                       N       DCD              3
+   11 00000010         
+   12 00000010                 AREA             mycode,CODE,READONLY
+   13 00000000                 EXPORT           start
+   14 00000000                 ENTRY
+   15 00000000         start
+   16 00000000         ;======================
+   17 00000000 F04F 0001       MOV              R0,#1
+   18 00000004 F85F 1004       LDR              R1,X
+   19 00000008 F85F 2004       LDR              R2,N
+   20 0000000C B407            PUSH{R0,R1,R2}
+   21 0000000E F7FF FFFE       BL               CT1
+   22 00000012 E7FE    stop    B                stop
+   23 00000014         CT1     PROC
+   24 00000014 BC07            POP{R0,R1,R2}
+   25 00000016 F04F 0302       MOV              R3,#2
+   26 0000001A 460C            MOV              R4,R1
+   27 0000001C         loop
+   28 0000001C 4293            CMP              R3,R2
+   29 0000001E DC05            BGT              ketthuc
+   30 00000020 FB04 F401       MUL              R4,R1       ; R4 = R4 X R1
+   31 00000024 4420            ADD              R0,R4
+   32 00000026 F103 0301       ADD              R3,#1
+   33 0000002A E7F7            B                loop
+   34 0000002C         ketthuc
+   35 0000002C 4770            BX               LR
+   36 0000002E                 ENDP
+   37 0000002E         ;======================
+   38 0000002E                 END
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab3.d
+ -o.\lab3.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
+c\ST\STM32F10x --list=.\lab3.lst lab3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+N 0000000C
+
+Symbol: N
+   Definitions
+      At line 10 in file lab3.s
+   Uses
+      At line 19 in file lab3.s
+Comment: N used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 5 in file lab3.s
+   Uses
+      None
+Comment: RESET unused
+X 00000008
+
+Symbol: X
+   Definitions
+      At line 9 in file lab3.s
+   Uses
+      At line 18 in file lab3.s
+Comment: X used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CT1 00000014
+
+Symbol: CT1
+   Definitions
+      At line 23 in file lab3.s
+   Uses
+      At line 21 in file lab3.s
+Comment: CT1 used once
+ketthuc 0000002C
+
+Symbol: ketthuc
+   Definitions
+      At line 34 in file lab3.s
+   Uses
+      At line 29 in file lab3.s
+Comment: ketthuc used once
+loop 0000001C
+
+Symbol: loop
+   Definitions
+      At line 27 in file lab3.s
+   Uses
+      At line 33 in file lab3.s
+Comment: loop used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 12 in file lab3.s
+   Uses
+      None
+Comment: mycode unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 15 in file lab3.s
+   Uses
+      At line 7 in file lab3.s
+      At line 13 in file lab3.s
+
+stop 00000012
+
+Symbol: stop
+   Definitions
+      At line 22 in file lab3.s
+   Uses
+      At line 22 in file lab3.s
+Comment: stop used once
+6 symbols
+339 symbols in table
