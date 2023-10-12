@@ -1,0 +1,154 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET , DATA ,READONLY
+    2 00000000 20001000        DCD              0x20001000  ; do dai du lieu la
+                                                             bao nhieu
+    3 00000004 00000000        DCD              start       ; 
+    4 00000008                 ALIGN
+    5 00000008         ; khai bao vung nho 
+    6 00000008         
+    7 00000008 0000000A 
+                       X       DCD              10
+    8 0000000C 00000003 
+                       Y       DCD              3
+    9 00000010         
+   10 00000010         ;khai bao vung ma lenh 
+   11 00000010                 AREA             KQ, DATA ,READWRITE
+   12 00000000 00000000 
+                       Nguyen  DCD              0
+   13 00000004 00000000 
+                       Du      DCD              0
+   14 00000008                 AREA             mycode, CODE ,READONLY
+   15 00000000                 EXPORT           start
+   16 00000000                 ENTRY
+   17 00000000         start
+   18 00000000 F85F 1004       LDR              R1,X
+   19 00000004 F85F 2004       LDR              R2,Y
+   20 00000008 F04F 0300       MOV              R3,#0
+   21 0000000C         Tiep
+   22 0000000C 1A89            SUBS             R1,R2       ;R1 = R1 - R2
+   23 0000000E F103 0301       ADD              R3,#1       ;R3 = R3 + 1
+   24 00000012 4291            CMP              R1,R2       ; KIEM TRA R1 VA R2
+                                                            
+   25 00000014 DAFA            BGE              Tiep        ;R1 >= R2 TIEP TUC 
+                                                            TRU
+   26 00000016 DBFF            BLT              ketthuc     ;R0 < R4 KET THUC
+   27 00000018         ketthuc
+   28 00000018 4E02            LDR              R6,=Nguyen
+   29 0000001A 6033            STR              R3,[R6]
+   30 0000001C 4F02            LDR              R7,=Du
+   31 0000001E 6039            STR              R1,[R7]
+   32 00000020 DF11            SWI              &11
+   33 00000022                 END
+              00 00 00000000 
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\bai3la
+b3.d -o.\bai3lab3.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Kei
+l\ARM\Inc\ST\STM32F10x --list=.\bai3lab3.lst bai3lab3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file bai3lab3.s
+   Uses
+      None
+Comment: RESET unused
+X 00000008
+
+Symbol: X
+   Definitions
+      At line 7 in file bai3lab3.s
+   Uses
+      At line 18 in file bai3lab3.s
+Comment: X used once
+Y 0000000C
+
+Symbol: Y
+   Definitions
+      At line 8 in file bai3lab3.s
+   Uses
+      At line 19 in file bai3lab3.s
+Comment: Y used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Du 00000004
+
+Symbol: Du
+   Definitions
+      At line 13 in file bai3lab3.s
+   Uses
+      At line 30 in file bai3lab3.s
+Comment: Du used once
+KQ 00000000
+
+Symbol: KQ
+   Definitions
+      At line 11 in file bai3lab3.s
+   Uses
+      None
+Comment: KQ unused
+Nguyen 00000000
+
+Symbol: Nguyen
+   Definitions
+      At line 12 in file bai3lab3.s
+   Uses
+      At line 28 in file bai3lab3.s
+Comment: Nguyen used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Tiep 0000000C
+
+Symbol: Tiep
+   Definitions
+      At line 21 in file bai3lab3.s
+   Uses
+      At line 25 in file bai3lab3.s
+Comment: Tiep used once
+ketthuc 00000018
+
+Symbol: ketthuc
+   Definitions
+      At line 27 in file bai3lab3.s
+   Uses
+      At line 26 in file bai3lab3.s
+Comment: ketthuc used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 14 in file bai3lab3.s
+   Uses
+      None
+Comment: mycode unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 17 in file bai3lab3.s
+   Uses
+      At line 3 in file bai3lab3.s
+      At line 15 in file bai3lab3.s
+
+4 symbols
+342 symbols in table

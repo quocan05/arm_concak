@@ -1,0 +1,5 @@
+--cpu Cortex-M3 -g --apcs=interwork 
+-I E:\Keil\ARM\RV31\INC
+-I E:\Keil\ARM\CMSIS\Include
+-I E:\Keil\ARM\Inc\ST\STM32F10x
+--list .\bai3lab3.lst --xref -o .\bai3lab3.o --depend .\bai3lab3.d "bai3lab3.s"
