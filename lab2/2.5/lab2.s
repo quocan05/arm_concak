@@ -1,9 +1,9 @@
 	AREA RESET , DATA ,READONLY
 		DCD 0x20001000
 		DCD start
-MaTran DCD 1,-1,-1
-	DCD 2,-2,2
-	DCD -3,3,-3
+MaTran 	DCD 1,-1,-1
+		DCD 2,-2,2
+		DCD -3,3,-3
 	AREA KQ,DATA ,READWRITE
 SoAm DCD 0
 SoDuong DCD 0
@@ -21,7 +21,7 @@ pt EQU 9
 	LDR R5,=pt
 	
 loop	
-	CMP R5,#0 ; so sanH R5 vaf 0
+	CMP R5,#0 ; so sanH R5 va 0
 	BEQ thoat ;Bang thi ket thuc
 	LDR R4,[R3,R2] ; lay gia tri tu dia chi R3 + R2
 	CMP R4,#0	; SO SANH R4 VOI 0

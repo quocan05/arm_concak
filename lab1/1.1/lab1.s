@@ -19,7 +19,7 @@ N EQU 5
 	
 Tinhtong
 	ADD R1,R2 ;R1 = R1 + R2 = 5
-	SUBS R2, #1 ; R2 = R2 -1 = 4
+	SUB R2, #1 ; R2 = R2 -1 = 4
 	CMP R2, #0 ;so sanh
 	BGT Tinhtong
 stop

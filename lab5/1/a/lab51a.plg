@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab5\1\a\lab51a.uvproj
+Project File Date:  10/24/2023
+
+<h2>Output:</h2>
+assembling lab51a.s...
+lab51a.s(5): error: A1516E: Bad symbol 'SPT16', not defined or external
+lab51a.s(6): error: A1516E: Bad symbol 'Coso16', not defined or external
+lab51a.s(9): error: A1516E: Bad symbol 'Coso1602', not defined or external
+lab51a.s(41): error: A1516E: Bad symbol 'THOAT', not defined or external
+lab51a.s(45): warning: A1581W: Added 2 bytes of padding at address 0x56
+"lab51a.s" - 4 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab51a.s...
+lab51a.s(5): error: A1516E: Bad symbol 'SPT16', not defined or external
+lab51a.s(6): error: A1516E: Bad symbol 'Coso16', not defined or external
+lab51a.s(9): error: A1516E: Bad symbol 'Coso1602', not defined or external
+lab51a.s(41): error: A1516E: Bad symbol 'THOAT', not defined or external
+lab51a.s(45): warning: A1581W: Added 2 bytes of padding at address 0x56
+".\lab51a.axf" - 4 Errors, 1 Warning(s).
+Target not created
+assembling lab51a.s...
+lab51a.s(7): warning: A1581W: Added 1 bytes of padding at address 0xb
+lab51a.s(59): warning: A1581W: Added 2 bytes of padding at address 0x5e
+"lab51a.s" - 0 Errors, 2 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab51a.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=104 RO-data=16 RW-data=4 ZI-data=0  
+".\lab51a.axf" - 0 Errors, 1 Warning(s).
+Rebuild target 'Target 1'
+assembling lab51a.s...
+lab51a.s(7): warning: A1581W: Added 1 bytes of padding at address 0xb
+lab51a.s(59): warning: A1581W: Added 2 bytes of padding at address 0x5e
+linking...
+.\lab51a.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=104 RO-data=16 RW-data=4 ZI-data=0  
+".\lab51a.axf" - 0 Errors, 3 Warning(s).

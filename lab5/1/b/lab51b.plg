@@ -1,0 +1,34 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab5\1\b\lab51b.uvproj
+Project File Date:  10/24/2023
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling lab51b.s...
+lab51b.s(1): error: A1163E: Unknown opcode RESET, , expecting opcode or Macro
+lab51b.s(2): error: A1105E: Area directive missing
+lab51b.s(2): warning: A1088W: Faking declaration of area AREA |$$$$$$$|
+".\lab51b.axf" - 2 Errors, 1 Warning(s).
+Target not created
+assembling lab51b.s...
+lab51b.s(1): error: A1163E: Unknown opcode RESET, , expecting opcode or Macro
+lab51b.s(2): error: A1105E: Area directive missing
+lab51b.s(2): warning: A1088W: Faking declaration of area AREA |$$$$$$$|
+"lab51b.s" - 2 Errors, 1 Warning(s).
+assembling lab51b.s...
+"lab51b.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+assembling lab51b.s...
+linking...
+.\lab51b.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=44 RO-data=12 RW-data=4 ZI-data=0  
+".\lab51b.axf" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab51b.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=44 RO-data=12 RW-data=4 ZI-data=0  
+".\lab51b.axf" - 0 Errors, 1 Warning(s).

@@ -1,0 +1,30 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab5\1\c\lab51c.uvproj
+Project File Date:  10/24/2023
+
+<h2>Output:</h2>
+assembling lab51c.s...
+lab51c.s(5): error: A1516E: Bad symbol 'Coso10', not defined or external
+lab51c.s(6): error: A1516E: Bad symbol 'Coso1016', not defined or external
+lab51c.s(17): error: A1516E: Bad symbol 'THOAT', not defined or external
+lab51c.s(21): warning: A1581W: Added 2 bytes of padding at address 0x26
+"lab51c.s" - 3 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab51c.s...
+lab51c.s(5): error: A1516E: Bad symbol 'Coso10', not defined or external
+lab51c.s(6): error: A1516E: Bad symbol 'Coso1016', not defined or external
+lab51c.s(17): error: A1516E: Bad symbol 'THOAT', not defined or external
+lab51c.s(21): warning: A1581W: Added 2 bytes of padding at address 0x26
+".\lab51c.axf" - 3 Errors, 1 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling lab51c.s...
+lab51c.s(5): error: A1516E: Bad symbol 'Coso10', not defined or external
+lab51c.s(6): error: A1516E: Bad symbol 'Coso1016', not defined or external
+lab51c.s(22): warning: A1581W: Added 2 bytes of padding at address 0x26
+".\lab51c.axf" - 2 Errors, 1 Warning(s).
+Target not created

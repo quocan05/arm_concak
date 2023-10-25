@@ -1,0 +1,118 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             Convert, CODE, READONLY
+    2 00000000         
+    3 00000000         ; Hàm chuy?n d?i t? chu?i nh? phân sang s? nguyên h? 10
+    4 00000000         ConvertBinaryToDecimal
+    5 00000000 F04F 0100       MOV              R1, #0      ; R1 luu tr? giá tr
+                                                            ? h? 10
+    6 00000004 F04F 0201       MOV              R2, #1      ; R2 luu tr? giá tr
+                                                            ? co s? (2^0 = 1)
+    7 00000008 F04F 0300       MOV              R3, #0      ; R3 luu tr? v? trí
+                                                             trong chu?i
+    8 0000000C         Loop
+    9 0000000C 5CE0            LDRB             R0, [R4, R3] ; Load ký t? t? ch
+                                                            u?i nh? phân vào R0
+                                                            
+   10 0000000E B148            CBZ              R0, Done    ; N?u ký t? là null
+                                                             terminator, k?t th
+                                                            úc vòng l?p
+   11 00000010 2831            CMP              R0, #'1'    ; So sánh ký t? v?i
+                                                             '1'
+   12 00000012 D000            BEQ              Multiply    ; N?u b?ng '1', nh?
+                                                            y d?n Multiply
+   13 00000014 E003            B                NextChar    ; N?u không, nh?y d
+                                                            ?n NextChar
+   14 00000016         Multiply
+   15 00000016 FB02 F001       MUL              R0, R2, R1  ; Nhân giá tr? hi?n
+                                                             t?i c?a R1 v?i co 
+                                                            s?
+   16 0000001A EB00 0102       ADD              R1, R0, R2  ; C?ng giá tr? nhân
+                                                             du?c vào R1
+   17 0000001E         NextChar
+   18 0000001E F103 0301       ADD              R3, R3, #1  ; Di chuy?n d?n ký 
+                                                            t? ti?p theo trong 
+                                                            chu?i
+   19 00000022 E7F3            B                Loop        ; L?p l?i vòng l?p
+   20 00000024         Done
+   21 00000024         ; K?t qu? là giá tr? h? 10, luu trong R1
+   22 00000024         
+   23 00000024         ; (Chú ý: R4 ph?i tr? d?n d?a ch? c?a chu?i nh? phân c?n
+                        chuy?n d?i)
+   24 00000024         
+   25 00000024 4770            BX               LR          ; Tr? v? t? hàm con
+                                                            
+   26 00000026         
+   27 00000026         END
+                       
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab51g
+.d -o.\lab51g.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\AR
+M\Inc\ST\STM32F10x --list=.\lab51g.lst lab51g.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Convert 00000000
+
+Symbol: Convert
+   Definitions
+      At line 1 in file lab51g.s
+   Uses
+      None
+Comment: Convert unused
+ConvertBinaryToDecimal 00000000
+
+Symbol: ConvertBinaryToDecimal
+   Definitions
+      At line 4 in file lab51g.s
+   Uses
+      None
+Comment: ConvertBinaryToDecimal unused
+Done 00000024
+
+Symbol: Done
+   Definitions
+      At line 20 in file lab51g.s
+   Uses
+      At line 10 in file lab51g.s
+Comment: Done used once
+END 00000026
+
+Symbol: END
+   Definitions
+      At line 27 in file lab51g.s
+   Uses
+      None
+Comment: END unused
+Loop 0000000C
+
+Symbol: Loop
+   Definitions
+      At line 8 in file lab51g.s
+   Uses
+      At line 19 in file lab51g.s
+Comment: Loop used once
+Multiply 00000016
+
+Symbol: Multiply
+   Definitions
+      At line 14 in file lab51g.s
+   Uses
+      At line 12 in file lab51g.s
+Comment: Multiply used once
+NextChar 0000001E
+
+Symbol: NextChar
+   Definitions
+      At line 17 in file lab51g.s
+   Uses
+      At line 13 in file lab51g.s
+Comment: NextChar used once
+7 symbols
+337 symbols in table

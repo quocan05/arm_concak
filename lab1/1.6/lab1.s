@@ -13,12 +13,16 @@ Reset_Handler
 ;-------------------------------------------------------------------------
 ; Bat dau doan code (Diem vao cua chuong trinh)---------------------------
 ; 
-X EQU 2
-N EQU 5
+X EQU 0
+N EQU 0
 
-	MOV R0 , #1;
+	MOV R0, #1;
 	LDR R1, =X;
 	LDR R2, =N;
+	CMP R1, #0; 
+	BLE stop;
+	CMP R2, #0;
+	BLE stop;
 	MOV R3, #1;
 	LDR R4, =X;
 tong

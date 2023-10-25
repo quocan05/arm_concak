@@ -1,2 +1,2 @@
 Dependencies for Project 'lab3.7', Target 'Target 1': (DO NOT MODIFY !)
-F (.\lab3.s)(0x65249C99)()
+F (.\lab3.s)(0x6527A163)(--cpu Cortex-M3 -g --apcs=interwork -I E:\Keil\ARM\RV31\INC-I E:\Keil\ARM\CMSIS\Include-I E:\Keil\ARM\Inc\ST\STM32F10x--list .\lab3.lst --xref -o .\lab3.o --depend .\lab3.d)

@@ -1,0 +1,128 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA,READONLY
+    2 00000000 20001000        DCD              0x20001000
+    3 00000004 00000000        DCD              start
+    4 00000008                 ALIGN
+    5 00000008 00000014 
+                       Coso10_CS2
+                               DCD              20
+    6 0000000C                 AREA             KETQUA, DATA, READWRITE
+    7 00000000 00      Coso1002
+                               DCB              0
+    8 00000001                 AREA             MYCODE, CODE, READONLY
+    9 00000000                 ENTRY
+   10 00000000         
+   11 00000000         start
+   12 00000000         
+   13 00000000 F81F 0004       LDRB             R0, Coso10_CS2
+   14 00000004 4908            LDR              R1, =Coso1002
+   15 00000006 F101 0164       ADD              R1, #100
+   16 0000000A F04F 0202       MOV              R2, #2
+   17 0000000E         LOOP2
+   18 0000000E 2802            CMP              R0,#2
+   19 00000010 DB09            BLT              STOP2
+   20 00000012 FBB0 F3F2       UDIV             R3, R0, R2  ; R3 LA THUONG
+   21 00000016 FB03 F402       MUL              R4, R3, R2
+   22 0000001A EBA0 0004       SUB              R0, R0, R4  ; R0 LA DU
+   23 0000001E F801 0901       STRB             R0, [R1], #-1
+   24 00000022 4618            MOV              R0, R3      ; DEM THUONG DI CHI
+                                                            A TIEP
+   25 00000024 E7F3            B                LOOP2
+   26 00000026         STOP2
+   27 00000026 7008            STRB             R0, [R1]
+   28 00000028                 END
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab51b
+.d -o.\lab51b.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\AR
+M\Inc\ST\STM32F10x --list=.\lab51b.lst lab51b.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Coso10_CS2 00000008
+
+Symbol: Coso10_CS2
+   Definitions
+      At line 5 in file lab51b.s
+   Uses
+      At line 13 in file lab51b.s
+Comment: Coso10_CS2 used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file lab51b.s
+   Uses
+      None
+Comment: RESET unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Coso1002 00000000
+
+Symbol: Coso1002
+   Definitions
+      At line 7 in file lab51b.s
+   Uses
+      At line 14 in file lab51b.s
+Comment: Coso1002 used once
+KETQUA 00000000
+
+Symbol: KETQUA
+   Definitions
+      At line 6 in file lab51b.s
+   Uses
+      None
+Comment: KETQUA unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+LOOP2 0000000E
+
+Symbol: LOOP2
+   Definitions
+      At line 17 in file lab51b.s
+   Uses
+      At line 25 in file lab51b.s
+Comment: LOOP2 used once
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 8 in file lab51b.s
+   Uses
+      None
+Comment: MYCODE unused
+STOP2 00000026
+
+Symbol: STOP2
+   Definitions
+      At line 26 in file lab51b.s
+   Uses
+      At line 19 in file lab51b.s
+Comment: STOP2 used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 11 in file lab51b.s
+   Uses
+      At line 3 in file lab51b.s
+Comment: start used once
+4 symbols
+340 symbols in table

@@ -3,20 +3,38 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-F:\KMA\hopngu\thuc hanh\LAB2\2.2\lab2.2.uvproj
+F:\KMA\hopngu\thuc hanh\lab2\2.2\lab2.2.uvproj
 Project File Date:  10/09/2023
 
 <h2>Output:</h2>
+Build target 'Target 1'
+assembling lab2.s...
+linking...
+.\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=72 RO-data=28 RW-data=8 ZI-data=0  
+".\lab2.2" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab2.s...
+linking...
+.\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=28 RW-data=0 ZI-data=0  
+".\lab2.2" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=28 RW-data=0 ZI-data=0  
+".\lab2.2" - 0 Errors, 1 Warning(s).
 assembling lab2.s...
 "lab2.s" - 0 Errors, 0 Warning(s).
 Build target 'Target 1'
 linking...
 .\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
-Program Size: Code=72 RO-data=28 RW-data=8 ZI-data=0  
+Program Size: Code=56 RO-data=28 RW-data=0 ZI-data=0  
 ".\lab2.2" - 0 Errors, 1 Warning(s).
-Rebuild target 'Target 1'
 assembling lab2.s...
+"lab2.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
 linking...
 .\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
-Program Size: Code=72 RO-data=28 RW-data=8 ZI-data=0  
+Program Size: Code=48 RO-data=28 RW-data=0 ZI-data=0  
 ".\lab2.2" - 0 Errors, 1 Warning(s).

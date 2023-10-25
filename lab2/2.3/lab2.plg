@@ -3,22 +3,37 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-F:\KMA\hopngu\thuc hanh\LAB2\2.3\lab2.3.uvproj
+F:\KMA\hopngu\thuc hanh\lab2\2.3\lab2.3.uvproj
 Project File Date:  10/09/2023
 
 <h2>Output:</h2>
+Build target 'Target 1'
 assembling lab2.s...
-lab2.s(54): warning: A1581W: Added 2 bytes of padding at address 0x46
+lab2.s(52): warning: A1581W: Added 2 bytes of padding at address 0x46
+linking...
+.\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=88 RO-data=28 RW-data=12 ZI-data=0  
+".\lab2.3" - 0 Errors, 2 Warning(s).
+assembling lab2.s...
+lab2.s(52): warning: A1581W: Added 2 bytes of padding at address 0x46
+"lab2.s" - 0 Errors, 1 Warning(s).
+assembling lab2.s...
+lab2.s(52): warning: A1581W: Added 2 bytes of padding at address 0x46
 "lab2.s" - 0 Errors, 1 Warning(s).
 Build target 'Target 1'
 linking...
 .\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
 Program Size: Code=88 RO-data=28 RW-data=12 ZI-data=0  
 ".\lab2.3" - 0 Errors, 1 Warning(s).
-Rebuild target 'Target 1'
+Build target 'Target 1'
 assembling lab2.s...
-lab2.s(54): warning: A1581W: Added 2 bytes of padding at address 0x46
+lab2.s(26): error: A1516E: Bad symbol 'chia', not defined or external
+".\lab2.3" - 1 Errors, 0 Warning(s).
+Target not created
+assembling lab2.s...
+"lab2.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
 linking...
 .\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
-Program Size: Code=88 RO-data=28 RW-data=12 ZI-data=0  
-".\lab2.3" - 0 Errors, 2 Warning(s).
+Program Size: Code=56 RO-data=28 RW-data=0 ZI-data=0  
+".\lab2.3" - 0 Errors, 1 Warning(s).

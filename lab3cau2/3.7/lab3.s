@@ -26,7 +26,7 @@ looptru
 	BLT hoandoi
 	
 tieptuc
-	SUB R1,R2 
+	SUB R1, R2 
 	CMP R1,#0
 	BEQ ketqua
 	B looptru

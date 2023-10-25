@@ -1,0 +1,36 @@
+Đoạn code này thực hiện chuyển đổi một số nguyên từ hệ cơ số 10 sang hệ cơ số 2. Hãy xem xét từng phần của mã:
+
+1. **DATA và DCD:**
+   - `AREA RESET, DATA, READONLY`: Khai báo một vùng nhớ dùng để lưu trữ dữ liệu không thay đổi (READONLY) trong vùng nhớ DATA.
+   - `DCD 0x20001000`: Lưu địa chỉ bắt đầu của dữ liệu vào ô nhớ này.
+   - `DCD start`: Lưu địa chỉ của hàm bắt đầu xử lý vào ô nhớ này.
+   - `ALIGN`: Đảm bảo địa chỉ tiếp theo là bội số của 4, tức là căn chỉnh dữ liệu để đảm bảo truy cập hiệu quả.
+   - `Coso10_CS2 DCD 20`: Lưu giá trị 20 vào ô nhớ này, có thể đại diện cho số cơ số 10 cần chuyển đổi sang hệ cơ số 2.
+
+2. **DATA và Coso1002:**
+   - `Coso1002 DCB 0`: Khai báo một ô nhớ để lưu kết quả chuyển đổi sang hệ cơ số 2. Giá trị ban đầu được thiết lập là 0.
+
+3. **CODE và ENTRY:**
+   - `ENTRY`: Điểm vào của chương trình.
+
+4. **Hàm start:**
+   - Đây là hàm bắt đầu xử lý.
+   - `LDRB R0, Coso10_CS2`: Load giá trị 20 vào thanh ghi R0.
+   - `LDR R1, =Coso1002`: Load địa chỉ của `Coso1002` vào thanh ghi R1.
+   - `ADD R1, #100`: Dịch địa chỉ R1 xuống 100 ô nhớ (để đủ chỗ lưu kết quả).
+
+5. **Vòng lặp (LOOP2):**
+   - So sánh giá trị của R0 với 2 (`CMP R0,#2`).
+   - Nếu giá trị của R0 bé hơn 2 (`BLT STOP2`), vòng lặp kết thúc.
+   - Ngược lại, chia giá trị của R0 cho 2 (`UDIV R3, R0, R2`), lưu thương vào R3.
+   - Nhân thương với 2 (`MUL R4, R3, R2`) và trừ kết quả từ R0 (`SUB R0, R0, R4`). R0 giờ chứa số dư.
+   - Lưu số dư vào vùng nhớ được chỉ định bởi thanh ghi R1 (`STRB R0, [R1], #-1`).
+   - Đặt giá trị của R3 vào R0 để tiếp tục vòng lặp (`MOV R0, R3`).
+   - Quay lại vòng lặp (`B LOOP2`).
+
+6. **STOP2 và END:**
+   - `STOP2`: Điểm dừng của vòng lặp, sau khi giá trị của R0 bé hơn 2.
+   - `STRB R0, [R1]`: Lưu giá trị cuối cùng của số dư vào vùng nhớ được chỉ định bởi R1.
+   - `END`: Kết thúc chương trình.
+
+Kết quả cuối cùng sẽ được lưu trong vùng nhớ `Coso1002` dưới dạng số nhị phân tương ứng với số cơ số 10 ban đầu (20 trong trường hợp này).

@@ -14,17 +14,20 @@ start
 N EQU 5
 	MOV R1,#1 ; gan R1 = 1(kq luu r1)
 	LDR R2,=N ; luu R2 = N = 5
+	CMP R2,#0 ; 
+	BLE thoat
 	MOV R3,#1; gan R3 = 1
 	
 ;5X4X3X2X1
 giaithua
 	CMP R3,R2
-	BHI thoat; nhay neu r3 lon hon r2
+	BHI stop; nhay neu r3 lon hon r2
 	MUL R1,R3 ;r1 = r1 * r3
 	ADD R3,#1 ; tang r3 len 1
 	B giaithua; lap lai 
-thoat
 	
+thoat
+	MOV R1,#0
 
 stop B stop
 	END

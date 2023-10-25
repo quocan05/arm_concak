@@ -1,0 +1,50 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab3cau1\3.3.uvproj
+Project File Date:  10/12/2023
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling lab3.s...
+linking...
+.\3.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=28 RO-data=12 RW-data=0 ZI-data=0  
+".\3.3" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab3.s...
+lab3.s(29): warning: A1488W: PROC/FUNC at line 20 in 'lab3.s' without matching ENDP/ENDFUNC
+lab3.s(23): error: A1516E: Bad symbol 'thoat', not defined or external
+".\3.3" - 1 Errors, 1 Warning(s).
+Target not created
+assembling lab3.s...
+lab3.s(29): warning: A1488W: PROC/FUNC at line 20 in 'lab3.s' without matching ENDP/ENDFUNC
+lab3.s(23): error: A1516E: Bad symbol 'thoat', not defined or external
+"lab3.s" - 1 Errors, 1 Warning(s).
+Build target 'Target 1'
+assembling lab3.s...
+lab3.s(29): warning: A1488W: PROC/FUNC at line 20 in 'lab3.s' without matching ENDP/ENDFUNC
+lab3.s(23): error: A1516E: Bad symbol 'thoat', not defined or external
+".\3.3" - 1 Errors, 1 Warning(s).
+Target not created
+Build target 'Target 1'
+assembling lab3.s...
+lab3.s(33): warning: A1313W: Missing END directive at end of file
+linking...
+.\3.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=36 RO-data=12 RW-data=0 ZI-data=0  
+".\3.3" - 0 Errors, 2 Warning(s).
+Rebuild target 'Target 1'
+assembling lab3.s...
+lab3.s(33): warning: A1313W: Missing END directive at end of file
+linking...
+.\3.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=36 RO-data=12 RW-data=0 ZI-data=0  
+".\3.3" - 0 Errors, 2 Warning(s).
+Build target 'Target 1'
+linking...
+.\3.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=36 RO-data=12 RW-data=0 ZI-data=0  
+".\3.3" - 0 Errors, 1 Warning(s).

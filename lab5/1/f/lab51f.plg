@@ -1,0 +1,24 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab5\1\f\lab51f.uvproj
+Project File Date:  10/24/2023
+
+<h2>Output:</h2>
+assembling lab51f.s...
+lab51f.s(6): warning: A1581W: Added 1 bytes of padding at address 0xb
+"lab51f.s" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab51f.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=92 RO-data=16 RW-data=4 ZI-data=0  
+".\lab51f.axf" - 0 Errors, 1 Warning(s).
+Rebuild target 'Target 1'
+assembling lab51f.s...
+lab51f.s(6): warning: A1581W: Added 1 bytes of padding at address 0xb
+linking...
+.\lab51f.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=92 RO-data=16 RW-data=4 ZI-data=0  
+".\lab51f.axf" - 0 Errors, 2 Warning(s).

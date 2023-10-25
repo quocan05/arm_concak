@@ -1,0 +1,6 @@
+--cpu Cortex-M3
+".\lab51b.o"
+--strict --scatter ".\lab51b.sct"
+--summary_stderr --info summarysizes --map --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\lab51b.map" -o .\lab51b.axf

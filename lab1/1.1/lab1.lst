@@ -31,12 +31,12 @@ ARM Macro Assembler    Page 1
    19 00000008         
    20 00000008         Tinhtong
    21 00000008 4411            ADD              R1,R2       ;R1 = R1 + R2 = 5
-   22 0000000A 3A01            SUBS             R2, #1      ; R2 = R2 -1 = 4
-   23 0000000C 2A00            CMP              R2, #0      ;so sanh
-   24 0000000E DCFB            BGT              Tinhtong
-   25 00000010         stop
-   26 00000010 E7FE            B                stop
-   27 00000012                 END                          ;KET THUC
+   22 0000000A F1A2 0201       SUB              R2, #1      ; R2 = R2 -1 = 4
+   23 0000000E 2A00            CMP              R2, #0      ;so sanh
+   24 00000010 DCFA            BGT              Tinhtong
+   25 00000012         stop
+   26 00000012 E7FE            B                stop
+   27 00000014                 END                          ;KET THUC
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab1.d
  -o.\lab1.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
 c\ST\STM32F10x --list=.\lab1.lst lab1.s
@@ -86,7 +86,7 @@ Symbol: Tinhtong
    Uses
       At line 24 in file lab1.s
 Comment: Tinhtong used once
-stop 00000010
+stop 00000012
 
 Symbol: stop
    Definitions

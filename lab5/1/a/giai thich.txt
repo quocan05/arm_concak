@@ -1,0 +1,40 @@
+Đoạn code này thực hiện chuyển đổi một chuỗi số thập lục phân (base 16) thành dạng nhị phân (base 2). Hãy xem xét từng phần của mã:
+
+1. **DATA và DCD:**
+   - `AREA RESET, DATA, READONLY`: Khai báo một vùng nhớ dùng để lưu trữ dữ liệu không thay đổi (READONLY) trong vùng nhớ DATA.
+   - `DCD 0x20001000`: Lưu địa chỉ bắt đầu của dữ liệu vào ô nhớ này.
+   - `ALIGN`: Đảm bảo địa chỉ tiếp theo là bội số của 4, tức là căn chỉnh dữ liệu để đảm bảo truy cập hiệu quả.
+   - `DV DCB "1AF"`: Đây là chuỗi đầu vào được định nghĩa ở dạng thập lục phân.
+
+2. **DATA và SPT:**
+   - `SPT DCD 3`: Lưu số lần lặp (3) để xử lý chuỗi đầu vào.
+
+3. **DATA và DR:**
+   - `DR DCB 0`: Đây là vùng nhớ dùng để lưu kết quả chuyển đổi thành dạng nhị phân.
+
+4. **CODE và Reset_Handler:**
+   - `EXPORT Reset_Handler`: Đánh dấu điểm xuất phát của chương trình.
+
+5. **CHUYEN_CHU_SANG_CS16 PROC:**
+   - Hàm này chuyển đổi một ký tự từ dạng thập lục phân sang dạng nhị phân. 
+   - Ký tự được lưu trong thanh ghi R7. Đầu tiên, nó kiểm tra xem ký tự có nằm trong khoảng từ 'A' đến 'F' không. Nếu có, nó chuyển đổi chúng thành giá trị từ 10 đến 15.
+   - Sau đó, nó chuyển giá trị thành dạng nhị phân và lưu vào thanh ghi R7.
+  
+6. **DOC_BIT PROC:**
+   - Hàm này thực hiện việc dịch phải một bit của số lưu trong thanh ghi R4 và lưu bit được dịch ra cuối dãy số.
+  
+7. **ENTRY và Reset_Handler:**
+   - `ENTRY`: Điểm vào của chương trình.
+   - `Reset_Handler`: Lấy địa chỉ của chuỗi thập lục phân (DV) và số lần lặp (SPT), sau đó bắt đầu vòng lặp.
+  
+8. **Vòng lặp (LOOP):**
+   - Đọc từng ký tự của chuỗi thập lục phân.
+   - Chuyển ký tự thành dạng nhị phân bằng cách gọi hàm `CHUYEN_CHU_SANG_CS16`.
+   - Dịch phải số nhị phân một bit bằng cách gọi hàm `DOC_BIT`.
+   - Lặp lại cho đến khi đã xử lý đủ số lần được chỉ định trong SPT.
+
+9. **THOAT và SWI &11:**
+   - `THOAT`: Điểm thoát khỏi chương trình.
+   - `SWI &11`: Hệ thống gọi một dịch vụ hệ thống với mã 11.
+
+Kết quả cuối cùng sẽ được lưu trong vùng nhớ `DR` dưới dạng chuỗi số nhị phân tương ứng với chuỗi thập lục phân ban đầu.

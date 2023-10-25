@@ -24,30 +24,34 @@ ARM Macro Assembler    Page 1
    14 00000000         ; Bat dau doan code (Diem vao cua chuong trinh)---------
                        ------------------
    15 00000000         ; 
-   16 00000000 00000002 
-                       X       EQU              2
-   17 00000000 00000005 
-                       N       EQU              5
+   16 00000000 00000000 
+                       X       EQU              0
+   17 00000000 00000000 
+                       N       EQU              0
    18 00000000         
-   19 00000000 F04F 0001       MOV              R0 , #1     ;
-   20 00000004 F04F 0102       LDR              R1, =X      ;
-   21 00000008 F04F 0205       LDR              R2, =N      ;
-   22 0000000C F04F 0301       MOV              R3, #1      ;
-   23 00000010 F04F 0402       LDR              R4, =X      ;
-   24 00000014         tong
-   25 00000014 4293            CMP              R3, R2      ;
-   26 00000016 DC05            BGT              ketthuc     ;
-   27 00000018 FB04 F401       MUL              R4, R1      ;
-   28 0000001C 4420            ADD              R0, R4      ;
-   29 0000001E F103 0301       ADD              R3, #1      ;
-   30 00000022 E7F7            B                tong
-   31 00000024         
-   32 00000024         ketthuc
-   33 00000024         
-   34 00000024 E7FE    stop    B                stop
-   35 00000026         ;-------------------------------------------------------
+   19 00000000 F04F 0001       MOV              R0, #1      ;
+   20 00000004 F04F 0100       LDR              R1, =X      ;
+   21 00000008 F04F 0200       LDR              R2, =N      ;
+   22 0000000C 2900            CMP              R1, #0      ; 
+   23 0000000E DD0D            BLE              stop        ;
+   24 00000010 2A00            CMP              R2, #0      ;
+   25 00000012 DD0B            BLE              stop        ;
+   26 00000014 F04F 0301       MOV              R3, #1      ;
+   27 00000018 F04F 0400       LDR              R4, =X      ;
+   28 0000001C         tong
+   29 0000001C 4293            CMP              R3, R2      ;
+   30 0000001E DC05            BGT              ketthuc     ;
+   31 00000020 FB04 F401       MUL              R4, R1      ;
+   32 00000024 4420            ADD              R0, R4      ;
+   33 00000026 F103 0301       ADD              R3, #1      ;
+   34 0000002A E7F7            B                tong
+   35 0000002C         
+   36 0000002C         ketthuc
+   37 0000002C         
+   38 0000002C E7FE    stop    B                stop
+   39 0000002E         ;-------------------------------------------------------
                        ------------------
-   36 00000026                 END                          ;Ket thuc chuong tr
+   40 0000002E                 END                          ;Ket thuc chuong tr
                                                             inhf
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab1.d
  -o.\lab1.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
@@ -90,29 +94,31 @@ Symbol: Reset_Handler
       At line 4 in file lab1.s
       At line 10 in file lab1.s
 
-ketthuc 00000024
+ketthuc 0000002C
 
 Symbol: ketthuc
    Definitions
-      At line 32 in file lab1.s
+      At line 36 in file lab1.s
    Uses
-      At line 26 in file lab1.s
+      At line 30 in file lab1.s
 Comment: ketthuc used once
-stop 00000024
+stop 0000002C
 
 Symbol: stop
    Definitions
-      At line 34 in file lab1.s
+      At line 38 in file lab1.s
    Uses
-      At line 34 in file lab1.s
-Comment: stop used once
-tong 00000014
+      At line 23 in file lab1.s
+      At line 25 in file lab1.s
+      At line 38 in file lab1.s
+
+tong 0000001C
 
 Symbol: tong
    Definitions
-      At line 24 in file lab1.s
+      At line 28 in file lab1.s
    Uses
-      At line 30 in file lab1.s
+      At line 34 in file lab1.s
 Comment: tong used once
 5 symbols
 
@@ -121,7 +127,7 @@ Comment: tong used once
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Absolute symbols
 
-N 00000005
+N 00000000
 
 Symbol: N
    Definitions
@@ -129,14 +135,14 @@ Symbol: N
    Uses
       At line 21 in file lab1.s
 Comment: N used once
-X 00000002
+X 00000000
 
 Symbol: X
    Definitions
       At line 16 in file lab1.s
    Uses
       At line 20 in file lab1.s
-      At line 23 in file lab1.s
+      At line 27 in file lab1.s
 
 2 symbols
 338 symbols in table

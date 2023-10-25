@@ -1,0 +1,2 @@
+Dependencies for Project 'lab53', Target 'Target 1': (DO NOT MODIFY !)
+F (.\lab53.s)(0x65375CBE)(--cpu Cortex-M3 -g --apcs=interwork -I E:\Keil\ARM\RV31\INC-I E:\Keil\ARM\CMSIS\Include-I E:\Keil\ARM\Inc\ST\STM32F10x--list .\lab53.lst --xref -o .\lab53.o --depend .\lab53.d)

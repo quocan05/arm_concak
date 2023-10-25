@@ -19,72 +19,43 @@ ARM Macro Assembler    Page 1
     8 0000001C         
     9 0000001C         ;khai bao vung ma lenh 
    10 0000001C                 AREA             KQ, DATA ,READWRITE
-   11 00000000 00000000 
-                       Tong    DCD              0
-   12 00000004 00000000 
-                       Nguyen  DCD              0
-   13 00000008 00000000 
-                       Du      DCD              0
-   14 0000000C                 AREA             mycode, CODE ,READONLY
-   15 00000000                 EXPORT           start
-   16 00000000                 ENTRY
-   17 00000000         start
-   18 00000000         ;===================================
-   19 00000000 00000005 
+   11 00000000         
+   12 00000000                 AREA             mycode, CODE ,READONLY
+   13 00000000                 EXPORT           start
+   14 00000000                 ENTRY
+   15 00000000         start
+   16 00000000         ;===================================
+   17 00000000 00000005 
                        SoHang  EQU              5
-   20 00000000 F04F 0000       MOV              R0,#0       ;tong
-   21 00000004 4910            LDR              R1,=chuoi
-   22 00000006 F04F 0200       MOV              R2,#0
-   23 0000000A 588B            LDR              R3,[R1,R2]
-   24 0000000C F04F 0405       LDR              R4,=SoHang
-   25 00000010         
-   26 00000010         loop
-   27 00000010 2C00            CMP              R4,#0       ;KIEM TRA R4 = 0 ha
+   18 00000000 F04F 0000       MOV              R0,#0       ;tong
+   19 00000004 490B            LDR              R1,=chuoi
+   20 00000006 F04F 0200       MOV              R2,#0
+   21 0000000A 588B            LDR              R3,[R1,R2]
+   22 0000000C F04F 0405       LDR              R4,=SoHang
+   23 00000010         
+   24 00000010         loop
+   25 00000010 2C00            CMP              R4,#0       ;KIEM TRA R4 = 0 ha
                                                             y k
-   28 00000012 D006            BEQ              chia        ;bang thi xuong phe
+   26 00000012 D006            BEQ              ketthuc     ;bang thi xuong phe
                                                             p chia
-   29 00000014 588B            LDR              R3,[R1,R2]  ;R3 = (Dia chi R1 +
+   27 00000014 588B            LDR              R3,[R1,R2]  ;R3 = (Dia chi R1 +
                                                              R2) = 3
-   30 00000016 4418            ADD              R0,R3       ;R0 =R0+R3
-   31 00000018 F102 0204       ADD              R2,#4       ;TANG R2 = R2 + 4 =
+   28 00000016 4418            ADD              R0,R3       ;R0 =R0+R3
+   29 00000018 F102 0204       ADD              R2,#4       ;TANG R2 = R2 + 4 =
                                                             > cho den gia tri t
                                                             iep theo cua chuoi
-   32 0000001C F1A4 0401       SUB              R4,#1       ;xoa so thu thu nha
+   30 0000001C F1A4 0401       SUB              R4,#1       ;xoa so thu thu nha
                                                             t di
-   33 00000020 E7F6            B                loop
-   34 00000022         chia
-   35 00000022 4D0A            LDR              R5,=Tong
-   36 00000024 6028            STR              R0,[R5]
-   37 00000026         
-   38 00000026         
-   39 00000026 F04F 0200       MOV              R2,#0
-   40 0000002A F04F 0405       LDR              R4,=SoHang
-   41 0000002E         Tiep
-   42 0000002E EBA0 0004       SUB              R0,R4       ;R0 = R0 - R4
-   43 00000032 F102 0201       ADD              R2,#1       ;R2 = R2 + 1
-   44 00000036 42A0            CMP              R0,R4       ; KIEM TRA R0 VA R4
-
-
-
-ARM Macro Assembler    Page 2 
-
-
-                                                            
-   45 00000038 DAF9            BGE              Tiep        ;R0 >= R4 TIEP TUC 
-                                                            TRU
-   46 0000003A DBFF            BLT              ketthuc     ;R0 < R4 TIEP TUC T
-                                                            RU
-   47 0000003C         ketthuc
-   48 0000003C 4E04            LDR              R6,=Nguyen
-   49 0000003E 6032            STR              R2,[R6]
-   50 00000040 4F04            LDR              R7,=Du
-   51 00000042 6038            STR              R0,[R7]
-   52 00000044 DF11            SWI              &11
-   53 00000046         
-   54 00000046                 END
-              00 00 00000000 
-              00000000 
-              00000000 
+   31 00000020 E7F6            B                loop
+   32 00000022         
+   33 00000022         ketthuc
+   34 00000022 F04F 0705       LDR              R7, =SoHang ;
+   35 00000026 FBB0 F6F7       UDIV             R6, R0, R7  ; R6 la tbc
+   36 0000002A FB06 F407       MUL              R4, R6, R7  ; 
+   37 0000002E EBA0 0704       SUB              R7, R0, R4  ; R7 la so du
+   38 00000032 DF11            SWI              &11
+   39 00000034         
+   40 00000034                 END
               00000000 
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab2.d
  -o.\lab2.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
@@ -109,7 +80,7 @@ Symbol: chuoi
    Definitions
       At line 7 in file lab2.s
    Uses
-      At line 21 in file lab2.s
+      At line 19 in file lab2.s
 Comment: chuoi used once
 2 symbols
 
@@ -118,14 +89,6 @@ Comment: chuoi used once
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Relocatable symbols
 
-Du 00000008
-
-Symbol: Du
-   Definitions
-      At line 13 in file lab2.s
-   Uses
-      At line 50 in file lab2.s
-Comment: Du used once
 KQ 00000000
 
 Symbol: KQ
@@ -134,66 +97,34 @@ Symbol: KQ
    Uses
       None
 Comment: KQ unused
-Nguyen 00000004
-
-Symbol: Nguyen
-   Definitions
-      At line 12 in file lab2.s
-   Uses
-      At line 48 in file lab2.s
-Comment: Nguyen used once
-Tong 00000000
-
-Symbol: Tong
-   Definitions
-      At line 11 in file lab2.s
-   Uses
-      At line 35 in file lab2.s
-Comment: Tong used once
-4 symbols
+1 symbol
 
 
 
 ARM Macro Assembler    Page 1 Alphabetic symbol ordering
 Relocatable symbols
 
-Tiep 0000002E
-
-Symbol: Tiep
-   Definitions
-      At line 41 in file lab2.s
-   Uses
-      At line 45 in file lab2.s
-Comment: Tiep used once
-chia 00000022
-
-Symbol: chia
-   Definitions
-      At line 34 in file lab2.s
-   Uses
-      At line 28 in file lab2.s
-Comment: chia used once
-ketthuc 0000003C
+ketthuc 00000022
 
 Symbol: ketthuc
    Definitions
-      At line 47 in file lab2.s
+      At line 33 in file lab2.s
    Uses
-      At line 46 in file lab2.s
+      At line 26 in file lab2.s
 Comment: ketthuc used once
 loop 00000010
 
 Symbol: loop
    Definitions
-      At line 26 in file lab2.s
+      At line 24 in file lab2.s
    Uses
-      At line 33 in file lab2.s
+      At line 31 in file lab2.s
 Comment: loop used once
 mycode 00000000
 
 Symbol: mycode
    Definitions
-      At line 14 in file lab2.s
+      At line 12 in file lab2.s
    Uses
       None
 Comment: mycode unused
@@ -201,12 +132,12 @@ start 00000000
 
 Symbol: start
    Definitions
-      At line 17 in file lab2.s
+      At line 15 in file lab2.s
    Uses
       At line 3 in file lab2.s
-      At line 15 in file lab2.s
+      At line 13 in file lab2.s
 
-6 symbols
+4 symbols
 
 
 
@@ -217,10 +148,10 @@ SoHang 00000005
 
 Symbol: SoHang
    Definitions
-      At line 19 in file lab2.s
+      At line 17 in file lab2.s
    Uses
-      At line 24 in file lab2.s
-      At line 40 in file lab2.s
+      At line 22 in file lab2.s
+      At line 34 in file lab2.s
 
 1 symbol
-345 symbols in table
+340 symbols in table

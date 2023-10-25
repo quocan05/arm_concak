@@ -1,0 +1,206 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Chuyen co so 16 sang 2 bang cach chuyen tung ky tu sang
+                        4 so co so 2
+    2 00000000                 AREA             RESET, DATA, READONLY
+    3 00000000 20001000        DCD              0x20001000
+    4 00000004 00000000        DCD              Reset_Handler
+    5 00000008                 ALIGN
+    6 00000008 31 41 46 
+                       DV      DCB              "1AF"       ;Du lieu dau vao 0x
+                                                            1AF
+    7 0000000B 00 00000003 
+                       SPT     DCD              3
+    8 00000010                 AREA             KETQUA, DATA, READWRITE
+    9 00000000 00      DR      DCB              0
+   10 00000001                 AREA             MYCODE, CODE, READONLY
+   11 00000000                 EXPORT           Reset_Handler
+   12 00000000         ;=====================================
+   13 00000000         ;Doc cac ky tu
+   14 00000000         CHUYEN_CHU_SANG_CS16
+                               PROC
+   15 00000000 BC80            POP              {R7}
+   16 00000002 2F46            CMP              R7, #0x46   ;Chu F
+   17 00000004 DC2A            BGT              THOAT       ; Khong hop le
+   18 00000006 2F41            CMP              R7, #0x41   ;Chu A
+   19 00000008 BFA8 3F37       SUBGE            R7, #0x37   ;Chu A tuong duong 
+                                                            voi so 10
+   20 0000000C F007 070F       AND              R7, #0x0F   ; Dam bao rang so t
+                                                            u 0-Fa
+   21 00000010 B480            PUSH             {R7}
+   22 00000012 4770            BX               LR
+   23 00000014                 ENDP
+   24 00000014         ;=====================================
+   25 00000014         ;Viet ky tu ra cac o nho bang cach dich phai
+   26 00000014         ;Sau day lay bit vua dich ra luu vao sau cung
+   27 00000014         ;Sau day dich con tro ra truoc 
+   28 00000014         DOC_BIT PROC
+   29 00000014 0864            LSRS             R4, #1      ; Dich phai so luu 
+                                                            trong thanh ghi R4
+   30 00000016 BF34 2500       MOVCC            R5, #0      ; neu bit dich ra l
+                                                            a 0
+   31 0000001A 2501            MOVCS            R5, #1      ; neu bit dich ra l
+                                                            a 1
+   32 0000001C F802 5901       STRB             R5, [R2], #-1 ; luu bit day vao
+                                                             va dich R2 ra truo
+                                                            c
+   33 00000020 4770            BX               LR
+   34 00000022                 ENDP
+   35 00000022         ;=====================================
+   36 00000022                 ENTRY
+   37 00000022         Reset_Handler
+   38 00000022 480F            LDR              R0, =DV
+   39 00000024 F85F 1004       LDR              R1, SPT
+   40 00000028 4A0E            LDR              R2, =DR
+   41 0000002A F04F 0301       MOV              R3, #1
+   42 0000002E         LOOP
+   43 0000002E 428B            CMP              R3, R1
+   44 00000030 DC14            BGT              THOAT
+   45 00000032 F810 4B01       LDRB             R4, [R0], #1
+   46 00000036 B410            PUSH             {R4}
+   47 00000038 F7FF FFFE       BL               CHUYEN_CHU_SANG_CS16
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   48 0000003C BC10            POP              {R4}
+   49 0000003E F102 0203       ADD              R2, #3      ; Tien them 3 bit d
+                                                            e viet nguoc lai
+   50 00000042 F7FF FFFE       BL               DOC_BIT
+   51 00000046 F7FF FFFE       BL               DOC_BIT
+   52 0000004A F7FF FFFE       BL               DOC_BIT
+   53 0000004E F7FF FFFE       BL               DOC_BIT     ; vi 1 ky tu o 16 -
+                                                            > 4 ky tu cs 2
+   54 00000052 F103 0301       ADD              R3, #1      ;
+   55 00000056 F102 0205       ADD              R2, #5      ;nhay den o trong t
+                                                            iep theo
+   56 0000005A E7E8            B                LOOP
+   57 0000005C         THOAT
+   58 0000005C DF11            SWI              &11
+   59 0000005E                 END
+              00 00 00000000 
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab51a
+.d -o.\lab51a.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\AR
+M\Inc\ST\STM32F10x --list=.\lab51a.lst lab51a.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DV 00000008
+
+Symbol: DV
+   Definitions
+      At line 6 in file lab51a.s
+   Uses
+      At line 38 in file lab51a.s
+Comment: DV used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 2 in file lab51a.s
+   Uses
+      None
+Comment: RESET unused
+SPT 0000000C
+
+Symbol: SPT
+   Definitions
+      At line 7 in file lab51a.s
+   Uses
+      At line 39 in file lab51a.s
+Comment: SPT used once
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DR 00000000
+
+Symbol: DR
+   Definitions
+      At line 9 in file lab51a.s
+   Uses
+      At line 40 in file lab51a.s
+Comment: DR used once
+KETQUA 00000000
+
+Symbol: KETQUA
+   Definitions
+      At line 8 in file lab51a.s
+   Uses
+      None
+Comment: KETQUA unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CHUYEN_CHU_SANG_CS16 00000000
+
+Symbol: CHUYEN_CHU_SANG_CS16
+   Definitions
+      At line 14 in file lab51a.s
+   Uses
+      At line 47 in file lab51a.s
+Comment: CHUYEN_CHU_SANG_CS16 used once
+DOC_BIT 00000014
+
+Symbol: DOC_BIT
+   Definitions
+      At line 28 in file lab51a.s
+   Uses
+      At line 50 in file lab51a.s
+      At line 51 in file lab51a.s
+      At line 52 in file lab51a.s
+      At line 53 in file lab51a.s
+
+LOOP 0000002E
+
+Symbol: LOOP
+   Definitions
+      At line 42 in file lab51a.s
+   Uses
+      At line 56 in file lab51a.s
+Comment: LOOP used once
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 10 in file lab51a.s
+   Uses
+      None
+Comment: MYCODE unused
+Reset_Handler 00000022
+
+Symbol: Reset_Handler
+   Definitions
+      At line 37 in file lab51a.s
+   Uses
+      At line 4 in file lab51a.s
+      At line 11 in file lab51a.s
+
+THOAT 0000005C
+
+Symbol: THOAT
+   Definitions
+      At line 57 in file lab51a.s
+   Uses
+      At line 17 in file lab51a.s
+      At line 44 in file lab51a.s
+
+6 symbols
+343 symbols in table

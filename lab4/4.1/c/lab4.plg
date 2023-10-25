@@ -1,0 +1,32 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab4\4.1\c\lab4.1c.uvproj
+Project File Date:  10/13/2023
+
+<h2>Output:</h2>
+assembling lab4.s...
+lab4.s(64): warning: A1488W: PROC/FUNC at line 29 in 'lab4.s' without matching ENDP/ENDFUNC
+"lab4.s" - 0 Errors, 1 Warning(s).
+assembling lab4.s...
+lab4.s(62): warning: A1488W: PROC/FUNC at line 29 in 'lab4.s' without matching ENDP/ENDFUNC
+"lab4.s" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab4.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=80 RO-data=28 RW-data=8 ZI-data=0  
+".\lab4.1c" - 0 Errors, 1 Warning(s).
+Rebuild target 'Target 1'
+assembling lab4.s...
+lab4.s(62): warning: A1488W: PROC/FUNC at line 29 in 'lab4.s' without matching ENDP/ENDFUNC
+linking...
+.\lab4.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=80 RO-data=28 RW-data=8 ZI-data=0  
+".\lab4.1c" - 0 Errors, 2 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab4.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=80 RO-data=28 RW-data=8 ZI-data=0  
+".\lab4.1c" - 0 Errors, 1 Warning(s).

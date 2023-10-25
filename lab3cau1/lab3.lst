@@ -1,0 +1,124 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             RESET, DATA, READONLY
+    2 00000000 20001000        DCD              0x20001000
+    3 00000004 00000000        DCD              start
+    4 00000008 00000003 
+                       N       DCD              3
+    5 0000000C                 AREA             MYCODE, CODE ,READONLY
+    6 00000000                 EXPORT           start
+    7 00000000                 ENTRY
+    8 00000000         
+    9 00000000         
+   10 00000000         start
+   11 00000000         ;=========================
+   12 00000000 F04F 0101       MOV              R1,#1
+   13 00000004 F85F 2004       LDR              R2,N
+   14 00000008 F04F 0301       MOV              R3,#1
+   15 0000000C F7FF FFFE       BL               giaithua
+   16 00000010         stop
+   17 00000010 E7FE            B                stop
+   18 00000012         
+   19 00000012         ;3X2X1
+   20 00000012         giaithua
+                               PROC
+   21 00000012         tinhgiaithua
+   22 00000012 4293            CMP              R3,R2
+   23 00000014 D804            BHI              thoat       ;higher
+   24 00000016 FB01 F103       MUL              R1,R3
+   25 0000001A F103 0301       ADD              R3,#1
+   26 0000001E E7F8            B                tinhgiaithua
+   27 00000020         
+   28 00000020         thoat
+   29 00000020 4770            BX               LR
+   30 00000022                 ENDP
+   31 00000022         
+   32 00000022         
+                       
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab3.d
+ -o.\lab3.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
+c\ST\STM32F10x --list=.\lab3.lst lab3.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+N 00000008
+
+Symbol: N
+   Definitions
+      At line 4 in file lab3.s
+   Uses
+      At line 13 in file lab3.s
+Comment: N used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 1 in file lab3.s
+   Uses
+      None
+Comment: RESET unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 5 in file lab3.s
+   Uses
+      None
+Comment: MYCODE unused
+giaithua 00000012
+
+Symbol: giaithua
+   Definitions
+      At line 20 in file lab3.s
+   Uses
+      At line 15 in file lab3.s
+Comment: giaithua used once
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 10 in file lab3.s
+   Uses
+      At line 3 in file lab3.s
+      At line 6 in file lab3.s
+
+stop 00000010
+
+Symbol: stop
+   Definitions
+      At line 16 in file lab3.s
+   Uses
+      At line 17 in file lab3.s
+Comment: stop used once
+thoat 00000020
+
+Symbol: thoat
+   Definitions
+      At line 28 in file lab3.s
+   Uses
+      At line 23 in file lab3.s
+Comment: thoat used once
+tinhgiaithua 00000012
+
+Symbol: tinhgiaithua
+   Definitions
+      At line 21 in file lab3.s
+   Uses
+      At line 26 in file lab3.s
+Comment: tinhgiaithua used once
+6 symbols
+338 symbols in table

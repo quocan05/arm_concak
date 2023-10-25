@@ -3,15 +3,14 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-F:\KMA\hopngu\thuc hanh\LAB2\2.5\lab2.5.uvproj
+F:\KMA\hopngu\thuc hanh\lab2\2.5\lab2.5.uvproj
 Project File Date:  10/09/2023
 
 <h2>Output:</h2>
-assembling lab2.s...
-lab2.s(1): error: A1163E: Unknown opcode RESET , expecting opcode or Macro
-lab2.s(2): error: A1105E: Area directive missing
-lab2.s(2): warning: A1088W: Faking declaration of area AREA |$$$$$$$|
-"lab2.s" - 2 Errors, 1 Warning(s).
+Build target 'Target 1'
 assembling lab2.s...
 lab2.s(52): warning: A1581W: Added 2 bytes of padding at address 0x42
-"lab2.s" - 0 Errors, 1 Warning(s).
+linking...
+.\lab2.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=80 RO-data=44 RW-data=8 ZI-data=0  
+".\lab2.5" - 0 Errors, 2 Warning(s).

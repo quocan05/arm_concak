@@ -1,0 +1,172 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Vi?t chuong trình tính tong cac phan tu c?a chu?i s?.
+    2 00000000                 AREA             RESET , DATA ,READONLY
+    3 00000000 20001000        DCD              0x20001000  ; do dai du lieu la
+                                                             bao nhieu
+    4 00000004 00000000        DCD              start       ; 
+    5 00000008                 ALIGN
+    6 00000008         ; khai bao vung nho 
+    7 00000008         
+    8 00000008 FFFFFFFD 
+              FFFFFFFD 
+              FFFFFFFF 
+              FFFFFFFC 
+              FFFFFFFB chuoi   DCD              -3,-3,-1,-4,-5
+    9 0000001C         
+   10 0000001C         ;khai bao vung ma lenh 
+   11 0000001C                 AREA             KQ, DATA ,READWRITE
+   12 00000000 00000000 
+                       Tong    DCD              0
+   13 00000004                 AREA             mycode, CODE ,READONLY
+   14 00000000                 EXPORT           start
+   15 00000000                 ENTRY
+   16 00000000         start
+   17 00000000         ;===================================
+   18 00000000 00000005 
+                       SoHang  EQU              5
+   19 00000000 2000            MOVS             R0,#0       ;tong
+   20 00000002 490A            LDR              R1,=chuoi
+   21 00000004 2200            MOVS             R2,#0
+   22 00000006 588B            LDR              R3,[R1,R2]
+   23 00000008 F04F 0405       LDR              R4,=SoHang
+   24 0000000C B41F            PUSH{R0,R1,R2,R3,R4}
+   25 0000000E F7FF FFFE       BL               CONG
+   26 00000012         CONG    PROC
+   27 00000012 BC1F            POP{R0,R1,R2,R3,R4}
+   28 00000014         loop
+   29 00000014 2C00            CMP              R4,#0       ;KIEM TRA R4 = 0 ha
+                                                            y k
+   30 00000016 D004            BEQ              ketthuc     ;bang thi xuong phe
+                                                            p chia
+   31 00000018 3204            ADDS             R2, #4
+   32 0000001A 18C0            ADDS             R0,R3       ;R0 =R0+R3
+   33 0000001C 588B            LDR              R3,[R1,R2]
+   34 0000001E 3C01            SUBS             R4,#1       ;xoa so thu thu nha
+                                                            t di
+   35 00000020 E7F8            B                loop
+   36 00000022         ketthuc
+   37 00000022 EA6F 0500       MVN              R5,R0
+   38 00000026 F105 0501       ADD              R5,#1
+   39 0000002A DF11            SWI              &11
+   40 0000002C                 ENDP
+   41 0000002C         ;===================================
+   42 0000002C                 END
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab4.d
+ -o.\lab4.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
+c\ST\STM32F10x --list=.\lab4.lst lab4.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 2 in file lab4.s
+   Uses
+      None
+Comment: RESET unused
+chuoi 00000008
+
+Symbol: chuoi
+   Definitions
+      At line 8 in file lab4.s
+   Uses
+      At line 20 in file lab4.s
+Comment: chuoi used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+KQ 00000000
+
+Symbol: KQ
+   Definitions
+      At line 11 in file lab4.s
+   Uses
+      None
+Comment: KQ unused
+Tong 00000000
+
+Symbol: Tong
+   Definitions
+      At line 12 in file lab4.s
+   Uses
+      None
+Comment: Tong unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CONG 00000012
+
+Symbol: CONG
+   Definitions
+      At line 26 in file lab4.s
+   Uses
+      At line 25 in file lab4.s
+Comment: CONG used once
+ketthuc 00000022
+
+Symbol: ketthuc
+   Definitions
+      At line 36 in file lab4.s
+   Uses
+      At line 30 in file lab4.s
+Comment: ketthuc used once
+loop 00000014
+
+Symbol: loop
+   Definitions
+      At line 28 in file lab4.s
+   Uses
+      At line 35 in file lab4.s
+Comment: loop used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 13 in file lab4.s
+   Uses
+      None
+Comment: mycode unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 16 in file lab4.s
+   Uses
+      At line 4 in file lab4.s
+      At line 14 in file lab4.s
+
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+SoHang 00000005
+
+Symbol: SoHang
+   Definitions
+      At line 18 in file lab4.s
+   Uses
+      At line 23 in file lab4.s
+Comment: SoHang used once
+1 symbol
+342 symbols in table

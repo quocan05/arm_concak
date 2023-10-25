@@ -15,7 +15,7 @@ Reset_Handler
 ;ta lay X - Y cho den khi X < Y thì doi chô den khi nào X-Y = 0 thì Y là uoc chung lon nhat
 X EQU 24
 Y EQU 36
-   	MOV R0,#0
+   	
 	LDR R1,=X
 	LDR R2,=Y
 	
@@ -40,7 +40,7 @@ hoandoi
 	MOV R1,R4
 	B tieptuc
 ketqua
-	MOV R3,R2; KQ se la R2 cuoi cung
+	MOV R3,R2;R3 se la cho luu KQ cua R2 cuoi cung
 	SWI &11
 	
 thoat

@@ -1,10 +1,10 @@
 	AREA RESET, DATA, READONLY
 		DCD 0x20001000
 		DCD Reset_Handler
-matran DCD 3,4,5,6
-	DCD 6,5,4,3
-	DCD 3,4,5,6
-	DCD 6,5,4,3
+matran 	DCD 3,4,5,6
+		DCD 6,5,4,3
+		DCD 3,4,5,6
+		DCD 6,5,4,3
 	
 	AREA RESET, DATA, READWRITE
 TongChan DCD 0
@@ -19,8 +19,8 @@ Reset_Handler
 soPhantu EQU 16
 	LDR R0,=matran
 	LDR R1,=soPhantu
-	MOV R2,#0	
-	MOV R3,#0	
+	MOV R2,#0	;tong chan
+	MOV R3,#0	;tong le
 	
 loop
 	CMP R1,#0 

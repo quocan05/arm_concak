@@ -15,16 +15,21 @@ Reset_Handler
 ; vi du 2 ^ 4 
 N EQU 4
 X EQU 2
+	MOV R2, #1; luu ket qua
 	LDR R0, =X;
 	LDR R1, =N;
-	MOV R2, #1; luu ket qua
+	CMP R0, #0
+	BLE ketthuc
+	CMP R1, #0
+	BEQ stop
 phepnhan
 	CMP R1, #0;
-	BEQ ketthuc;
+	BEQ stop;
 	MUL R2, R0;
 	SUB R1, #1;
 	B phepnhan
-ketthuc
+ketthuc	
+	MOV R2, #0;
 
 stop 
 	B stop;

@@ -22,22 +22,27 @@ ARM Macro Assembler    Page 1
    13 00000000         ;=========================
    14 00000000 00000005 
                        N       EQU              5
-   15 00000000 F04F 0101       MOV              R1,#1       ; gan R1 = 1
+   15 00000000 F04F 0101       MOV              R1,#1       ; gan R1 = 1(kq luu
+                                                             r1)
    16 00000004 F04F 0205       LDR              R2,=N       ; luu R2 = N = 5
-   17 00000008 F04F 0301       MOV              R3,#1       ; gan R3 = 1
-   18 0000000C         
-   19 0000000C         ;5X4X3X2X1
-   20 0000000C         giaithua
-   21 0000000C 4293            CMP              R3,R2
-   22 0000000E D804            BHI              thoat
-   23 00000010 FB01 F103       MUL              R1,R3
-   24 00000014 F103 0301       ADD              R3,#1
-   25 00000018 E7F8            B                giaithua
-   26 0000001A         thoat
-   27 0000001A         
-   28 0000001A         
-   29 0000001A E7FE    stop    B                stop
-   30 0000001C                 END
+   17 00000008 2A00            CMP              R2,#0       ; 
+   18 0000000A DD08            BLE              thoat
+   19 0000000C F04F 0301       MOV              R3,#1       ; gan R3 = 1
+   20 00000010         
+   21 00000010         ;5X4X3X2X1
+   22 00000010         giaithua
+   23 00000010 4293            CMP              R3,R2
+   24 00000012 D806            BHI              stop        ; nhay neu r3 lon h
+                                                            on r2
+   25 00000014 FB01 F103       MUL              R1,R3       ;r1 = r1 * r3
+   26 00000018 F103 0301       ADD              R3,#1       ; tang r3 len 1
+   27 0000001C E7F8            B                giaithua    ; lap lai 
+   28 0000001E         
+   29 0000001E         thoat
+   30 0000001E F04F 0100       MOV              R1,#0
+   31 00000022         
+   32 00000022 E7FE    stop    B                stop
+   33 00000024                 END
 Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab1.d
  -o.\lab1.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
 c\ST\STM32F10x --list=.\lab1.lst lab1.s
@@ -70,13 +75,13 @@ Symbol: MYCODE
    Uses
       None
 Comment: MYCODE unused
-giaithua 0000000C
+giaithua 00000010
 
 Symbol: giaithua
    Definitions
-      At line 20 in file lab1.s
+      At line 22 in file lab1.s
    Uses
-      At line 25 in file lab1.s
+      At line 27 in file lab1.s
 Comment: giaithua used once
 start 00000000
 
@@ -87,21 +92,22 @@ Symbol: start
       At line 4 in file lab1.s
       At line 10 in file lab1.s
 
-stop 0000001A
+stop 00000022
 
 Symbol: stop
    Definitions
-      At line 29 in file lab1.s
+      At line 32 in file lab1.s
    Uses
-      At line 29 in file lab1.s
-Comment: stop used once
-thoat 0000001A
+      At line 24 in file lab1.s
+      At line 32 in file lab1.s
+
+thoat 0000001E
 
 Symbol: thoat
    Definitions
-      At line 26 in file lab1.s
+      At line 29 in file lab1.s
    Uses
-      At line 22 in file lab1.s
+      At line 18 in file lab1.s
 Comment: thoat used once
 5 symbols
 

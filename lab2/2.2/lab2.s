@@ -16,12 +16,12 @@ min DCD 0
 start
 ;=========================================
 pt EQU 5
-	LDR R2,=chuoi ;LAY DIA CHI DAU TIEN CUA CHUOI
-	LDR R3,=pt ;R3 = 5
-	MOV R4,#0 ; BIEN NHAY
-	LDR R5,[R2,R4] ;0x00000000 + 0 => R5 = 3
-	MOV R0,R5 ;max
-	MOV R1,R5 ;min
+	LDR R2,=chuoi 	;LAY DIA CHI DAU TIEN CUA CHUOI
+	LDR R3,=pt 		;R3 = 5
+	MOV R4,#0 		; BIEN NHAY
+	LDR R5,[R2,R4] 	;0x00000000 + 0 => R5 = 3, gia tri cua dia chi R2 + gia tri cua R4 roi luu vao R5
+	MOV R0,R5 		;max
+	MOV R1,R5 		;min
 loop	
 	CMP R3,#0
 	BEQ thoat
@@ -43,16 +43,7 @@ tieptuc
 	ADD R4,#4 ;Tang len 4 lan de nhay sang phan tu tiep theo
 	SUB R3,#1	; khi nhay se sang phan tu tiep theo chuoi so se giam di 1
 	B loop
-	
-	
-
-
 thoat
-	LDR R6,=max ;gan dia chi max vao R6
-	STR R0,[R6]	; LUU gia tri R0 vao dia chi R6 
-	LDR R7,=min
-	STR R1,[R7]
 	SWI &11
 
-	
 	END	

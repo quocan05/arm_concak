@@ -4,7 +4,7 @@
 	ALIGN
 ; khai bao vung nho 
 
-MATRAN DCD 1,2,3
+MATRAN 	DCD 1,2,3
 		DCD 3,2,1
 		DCD 1,2,3
 
@@ -17,22 +17,21 @@ Tong DCD 0
 start
 ;===================================
 sopt EQU 9
-	LDR R1,=MATRAN
-	LDR R2,=sopt
-	MOV R3,#0
+	LDR R1,=MATRAN ;luu dia chi ban dau vao R1
+	LDR R2,=sopt ; luu so pt = 9 vao R2
+	MOV R3,#0 ; thanh ghi nhay gia tri
 	LDR R4,[R1,R3]
 	MOV R0,#0
 loop	
 	CMP R2,#0
 	BEQ thoat
-	LDR R4,[R1,R3]
+	LDR R4,[R1,R3] ; phan tu tiep theo
 	ADD R0,R4
-	ADD R3,#4
-	SUB R2,#1
+	ADD R3,#4 ; nhay den dia chi o nho  tiep theo
+	SUB R2,#1 ; giam so pt 
 	B loop
 	
 thoat
-	LDR R5,=Tong
-	STR R0,[R5]
+	
 	SWI &11
 	END

@@ -21,7 +21,7 @@ loop
 	CMP R1,R2 ;so sanh R3 voi R2
 	BGT ketthuc ; Ket thuc tong
 	ADD R0,R1 ; R0 = R0 +R1
-	ADD R1,#1 ; R3 = R3 + 2
+	ADD R1,#1 ; R3 = R1 + 1
 	B loop
 ketthuc
 	BX LR

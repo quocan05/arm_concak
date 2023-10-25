@@ -1,0 +1,35 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             CS10_CS16,CODE,READONLY
+    2 00000000         
+    3 00000000         ;=====================
+    4 00000000         H10_H16 PROC
+    5 00000000 DE00            LDR              R0,Coso10   ;R0 = 1000
+    6 00000002 4909            LDR              R1,=Coso1016
+    7 00000004 F101 0164       ADD              R1,#100
+    8 00000008 F04F 0210       MOV              R2,#16
+    9 0000000C         LOOP5
+   10 0000000C FBB0 F3F2       UDIV             R3,R0,R2    ; CHIA R0/R2 = R3
+   11 00000010 FB03 F402       MUL              R4,R3,R2    ;NHAN R4 = R3XR2
+   12 00000014 EBA3 0304       SUB              R3,R4       ; KET QUA DU
+   13 00000018 F841 4901       STR              R4,[R1],#-1 ;LUU KET QUA VAO DI
+                                                            A CHI ROI GIAM DI 1
+                                                            
+   14 0000001C 2B00            CMP              R3,#0
+   15 0000001E 4618            MOV              R0,R3       ;GAN R3 VAO R0 DE C
+                                                            HIA TIEP
+   16 00000020 DCF4            BGT              LOOP5
+   17 00000022 E000            B                THOAT
+   18 00000024 4770            BX               LR
+   19 00000026                 ENDP
+   20 00000026         THOAT
+   21 00000026         ;=====================
+   22 00000026                 END
+              00 00 00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab51c
+.d -o.\lab51c.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\AR
+M\Inc\ST\STM32F10x --list=.\lab51c.lst lab51c.s

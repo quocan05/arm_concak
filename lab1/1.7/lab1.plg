@@ -7,15 +7,3 @@ F:\KMA\hopngu\thuc hanh\lab1\1.7\lab1.7.uvproj
 Project File Date:  10/05/2023
 
 <h2>Output:</h2>
-Build target 'Target 1'
-assembling lab1.s...
-lab1.s(18): error: A1150E: Bad symbol, not defined or external
-lab1.s(19): error: A1150E: Bad symbol, not defined or external
-".\lab1.7" - 2 Errors, 0 Warning(s).
-Target not created
-Build target 'Target 1'
-assembling lab1.s...
-linking...
-.\lab1.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
-Program Size: Code=52 RO-data=8 RW-data=0 ZI-data=0  
-".\lab1.7" - 0 Errors, 1 Warning(s).

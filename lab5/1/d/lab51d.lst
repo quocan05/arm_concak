@@ -1,0 +1,206 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;He 2 sang 8
+    2 00000000                 AREA             RESET, DATA, READONLY
+    3 00000000 20001000        DCD              0x20001000
+    4 00000004 00000000        DCD              Reset_Handler
+    5 00000008 01 00 01 
+              01 00 01 
+              00 01    DV      DCB              1,0,1,1,0,1,0,1
+    6 00000010 00000008 
+                       DD      DCD              8
+    7 00000014                 AREA             KETQUA, DATA, READWRITE
+    8 00000000 00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00 00 00 
+              00       DR      SPACE            100
+    9 00000064                 AREA             MYCODE, CODE, READONLY
+   10 00000000                 EXPORT           Reset_Handler
+   11 00000000                 ENTRY
+   12 00000000         Reset_Handler
+   13 00000000 4812            LDR              R0, =DV
+   14 00000002 F85F 1004       LDR              R1, DD
+   15 00000006 4A12            LDR              R2, =DR
+   16 00000008 440A            ADD              R2, R1
+   17 0000000A 4408            ADD              R0, R1
+   18 0000000C F1A0 0001       SUB              R0, #1      ; Dich n - 1
+   19 00000010         Loop
+   20 00000010 2900            CMP              R1, #0
+   21 00000012 DD19            BLE              Thoat
+   22 00000014 F04F 0300       MOV              R3, #0
+   23 00000018 F810 4901       LDRB             R4, [R0], #-1 ; Doc roi dich ng
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+                                                            uoc ve truoc
+   24 0000001C 2C01            CMP              R4, #1      ; Vi nhi phan nen c
+                                                            hi co the la 0 hoac
+                                                             1 nen ta cong truc
+                                                             tiep
+   25 0000001E BF08 3301       ADDEQ            R3, #1
+   26 00000022 2901            CMP              R1, #1
+   27 00000024 D00B            BEQ              Done        ; Chi con 1 so thi 
+                                                            ghi ket qua luon
+   28 00000026         ;Neu con so thi doc so tiep theo
+   29 00000026 F810 4901       LDRB             R4, [R0], #-1 ; Doc tuong tu
+   30 0000002A 2C01            CMP              R4, #1
+   31 0000002C BF08 3302       ADDEQ            R3, #2
+   32 00000030 2902            CMP              R1, #2
+   33 00000032 D004            BEQ              Done        ; Chi con 2 so
+   34 00000034         
+   35 00000034 F810 4901       LDRB             R4, [R0], #-1
+   36 00000038 2C01            CMP              R4, #1
+   37 0000003A BF08 3304       ADDEQ            R3, #4
+   38 0000003E         Done
+   39 0000003E F802 3901       STRB             R3, [R2], #-1
+   40 00000042 F1A1 0103       SUB              R1, #3
+   41 00000046 E7E3            B                Loop
+   42 00000048         Thoat
+   43 00000048 BF00            NOP
+   44 0000004A                 END
+              00 00 00000000 
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab51d
+.d -o.\lab51d.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\AR
+M\Inc\ST\STM32F10x --list=.\lab51d.lst lab51d.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DD 00000010
+
+Symbol: DD
+   Definitions
+      At line 6 in file lab51d.s
+   Uses
+      At line 14 in file lab51d.s
+Comment: DD used once
+DV 00000008
+
+Symbol: DV
+   Definitions
+      At line 5 in file lab51d.s
+   Uses
+      At line 13 in file lab51d.s
+Comment: DV used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 2 in file lab51d.s
+   Uses
+      None
+Comment: RESET unused
+3 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+DR 00000000
+
+Symbol: DR
+   Definitions
+      At line 8 in file lab51d.s
+   Uses
+      At line 15 in file lab51d.s
+Comment: DR used once
+KETQUA 00000000
+
+Symbol: KETQUA
+   Definitions
+      At line 7 in file lab51d.s
+   Uses
+      None
+Comment: KETQUA unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+Done 0000003E
+
+Symbol: Done
+   Definitions
+      At line 38 in file lab51d.s
+   Uses
+      At line 27 in file lab51d.s
+      At line 33 in file lab51d.s
+
+Loop 00000010
+
+Symbol: Loop
+   Definitions
+      At line 19 in file lab51d.s
+   Uses
+      At line 41 in file lab51d.s
+Comment: Loop used once
+MYCODE 00000000
+
+Symbol: MYCODE
+   Definitions
+      At line 9 in file lab51d.s
+   Uses
+      None
+Comment: MYCODE unused
+Reset_Handler 00000000
+
+Symbol: Reset_Handler
+   Definitions
+      At line 12 in file lab51d.s
+   Uses
+      At line 4 in file lab51d.s
+      At line 10 in file lab51d.s
+
+Thoat 00000048
+
+Symbol: Thoat
+   Definitions
+      At line 42 in file lab51d.s
+   Uses
+      At line 21 in file lab51d.s
+Comment: Thoat used once
+5 symbols
+342 symbols in table

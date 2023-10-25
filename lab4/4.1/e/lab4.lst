@@ -1,0 +1,182 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         ;Vi?t chuong trình tính t?ng các ph?n t? trong ma tr?n
+    2 00000000                 AREA             RESET , DATA ,READONLY
+    3 00000000 20001000        DCD              0x20001000  ; do dai du lieu la
+                                                             bao nhieu
+    4 00000004 00000000        DCD              start       ; 
+    5 00000008                 ALIGN
+    6 00000008         ; khai bao vung nho 
+    7 00000008         
+    8 00000008 00000001 
+              00000002 
+              00000003 MATRAN  DCD              1,2,3
+    9 00000014 00000003 
+              00000002 
+              00000001         DCD              3,2,1
+   10 00000020 00000001 
+              00000002 
+              00000003         DCD              1,2,3
+   11 0000002C         
+   12 0000002C         ;khai bao vung ma lenh 
+   13 0000002C                 AREA             KQ, DATA ,READWRITE
+   14 00000000 00000000 
+                       Tong    DCD              0
+   15 00000004                 AREA             mycode, CODE ,READONLY
+   16 00000000                 EXPORT           start
+   17 00000000                 ENTRY
+   18 00000000         start
+   19 00000000         ;===================================
+   20 00000000 00000009 
+                       sopt    EQU              9
+   21 00000000 490B            LDR              R1,=MATRAN
+   22 00000002 F04F 0209       LDR              R2,=sopt
+   23 00000006 F04F 0300       MOV              R3,#0
+   24 0000000A 58CC            LDR              R4,[R1,R3]
+   25 0000000C F04F 0000       MOV              R0,#0
+   26 00000010 B41F            PUSH{R0,R1,R2,R3,R4}
+   27 00000012 F7FF FFFE       BL               TONGSOPT
+   28 00000016         TONGSOPT
+                               PROC
+   29 00000016 BC1F            POP{R0,R1,R2,R3,R4}
+   30 00000018         loop
+   31 00000018 2A00            CMP              R2,#0
+   32 0000001A D006            BEQ              thoat
+   33 0000001C 58CC            LDR              R4,[R1,R3]
+   34 0000001E 4420            ADD              R0,R4
+   35 00000020 F103 0304       ADD              R3,#4
+   36 00000024 F1A2 0201       SUB              R2,#1
+   37 00000028 E7F6            B                loop
+   38 0000002A         
+   39 0000002A         thoat
+   40 0000002A 4D02            LDR              R5,=Tong
+   41 0000002C 6028            STR              R0,[R5]
+   42 0000002E DF11            SWI              &11
+   43 00000030                 ENDP
+   44 00000030         
+   45 00000030                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --cpu=Cortex-M3 --apcs=interwork --depend=.\lab4.d
+ -o.\lab4.o -IE:\Keil\ARM\RV31\INC -IE:\Keil\ARM\CMSIS\Include -IE:\Keil\ARM\In
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+c\ST\STM32F10x --list=.\lab4.lst lab4.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+MATRAN 00000008
+
+Symbol: MATRAN
+   Definitions
+      At line 8 in file lab4.s
+   Uses
+      At line 21 in file lab4.s
+Comment: MATRAN used once
+RESET 00000000
+
+Symbol: RESET
+   Definitions
+      At line 2 in file lab4.s
+   Uses
+      None
+Comment: RESET unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+KQ 00000000
+
+Symbol: KQ
+   Definitions
+      At line 13 in file lab4.s
+   Uses
+      None
+Comment: KQ unused
+Tong 00000000
+
+Symbol: Tong
+   Definitions
+      At line 14 in file lab4.s
+   Uses
+      At line 40 in file lab4.s
+Comment: Tong used once
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+TONGSOPT 00000016
+
+Symbol: TONGSOPT
+   Definitions
+      At line 28 in file lab4.s
+   Uses
+      At line 27 in file lab4.s
+Comment: TONGSOPT used once
+loop 00000018
+
+Symbol: loop
+   Definitions
+      At line 30 in file lab4.s
+   Uses
+      At line 37 in file lab4.s
+Comment: loop used once
+mycode 00000000
+
+Symbol: mycode
+   Definitions
+      At line 15 in file lab4.s
+   Uses
+      None
+Comment: mycode unused
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 18 in file lab4.s
+   Uses
+      At line 4 in file lab4.s
+      At line 16 in file lab4.s
+
+thoat 0000002A
+
+Symbol: thoat
+   Definitions
+      At line 39 in file lab4.s
+   Uses
+      At line 32 in file lab4.s
+Comment: thoat used once
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Absolute symbols
+
+sopt 00000009
+
+Symbol: sopt
+   Definitions
+      At line 20 in file lab4.s
+   Uses
+      At line 22 in file lab4.s
+Comment: sopt used once
+1 symbol
+342 symbols in table

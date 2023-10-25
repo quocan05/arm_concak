@@ -1,0 +1,46 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab5\1\d\lab51d.uvproj
+Project File Date:  10/24/2023
+
+<h2>Output:</h2>
+assembling lab51d.s...
+lab51d.s(44): warning: A1581W: Added 2 bytes of padding at address 0x4a
+"lab51d.s" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab51d.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=84 RO-data=20 RW-data=100 ZI-data=0  
+".\lab51d.axf" - 0 Errors, 1 Warning(s).
+Rebuild target 'Target 1'
+assembling lab51d.s...
+lab51d.s(44): warning: A1581W: Added 2 bytes of padding at address 0x4a
+linking...
+.\lab51d.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=84 RO-data=20 RW-data=100 ZI-data=0  
+".\lab51d.axf" - 0 Errors, 2 Warning(s).
+Rebuild target 'Target 1'
+assembling lab51d.s...
+lab51d.s(44): warning: A1581W: Added 2 bytes of padding at address 0x4a
+linking...
+.\lab51d.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=84 RO-data=20 RW-data=100 ZI-data=0  
+".\lab51d.axf" - 0 Errors, 2 Warning(s).
+Rebuild target 'Target 1'
+assembling lab51d.s...
+lab51d.s(44): warning: A1581W: Added 2 bytes of padding at address 0x4a
+linking...
+.\lab51d.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=84 RO-data=20 RW-data=100 ZI-data=0  
+".\lab51d.axf" - 0 Errors, 2 Warning(s).
+assembling lab51d.s...
+lab51d.s(44): warning: A1581W: Added 2 bytes of padding at address 0x4a
+"lab51d.s" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab51d.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=84 RO-data=20 RW-data=100 ZI-data=0  
+".\lab51d.axf" - 0 Errors, 1 Warning(s).

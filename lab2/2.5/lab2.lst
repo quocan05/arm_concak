@@ -36,7 +36,7 @@ ARM Macro Assembler    Page 1
    21 00000010 F04F 0509       LDR              R5,=pt
    22 00000014         
    23 00000014         loop
-   24 00000014 2D00            CMP              R5,#0       ; so sanH R5 vaf 0
+   24 00000014 2D00            CMP              R5,#0       ; so sanH R5 va 0
    25 00000016 D00F            BEQ              thoat       ;Bang thi ket thuc
    26 00000018 589C            LDR              R4,[R3,R2]  ; lay gia tri tu di
                                                             a chi R3 + R2

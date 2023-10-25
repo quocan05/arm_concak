@@ -1,0 +1,5 @@
+--cpu Cortex-M3 -g --apcs=interwork 
+-I E:\Keil\ARM\RV31\INC
+-I E:\Keil\ARM\CMSIS\Include
+-I E:\Keil\ARM\Inc\ST\STM32F10x
+--list .\lab51g.lst --xref -o .\lab51g.o --depend .\lab51g.d "lab51g.s"

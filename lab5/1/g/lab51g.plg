@@ -1,0 +1,12 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab5\1\g\lab51g.uvproj
+Project File Date:  10/24/2023
+
+<h2>Output:</h2>
+assembling lab51g.s...
+lab51g.s(28): warning: A1447W: Missing END directive at end of file, but found a label named END
+"lab51g.s" - 0 Errors, 1 Warning(s).

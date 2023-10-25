@@ -1,0 +1,44 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+F:\KMA\hopngu\thuc hanh\lab4\4.1\e\lab4.1e.uvproj
+Project File Date:  10/13/2023
+
+<h2>Output:</h2>
+assembling lab4.s...
+lab4.s(44): warning: A1488W: PROC/FUNC at line 29 in 'lab4.s' without matching ENDP/ENDFUNC
+lab4.s(41): error: A1516E: Bad symbol 'Tong', not defined or external
+"lab4.s" - 1 Errors, 1 Warning(s).
+assembling lab4.s...
+lab4.s(41): error: A1516E: Bad symbol 'Tong', not defined or external
+"lab4.s" - 1 Errors, 0 Warning(s).
+assembling lab4.s...
+"lab4.s" - 0 Errors, 0 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab4.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=44 RW-data=4 ZI-data=0  
+".\lab4.1e" - 0 Errors, 1 Warning(s).
+Rebuild target 'Target 1'
+assembling lab4.s...
+linking...
+.\lab4.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=44 RW-data=4 ZI-data=0  
+".\lab4.1e" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab4.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=44 RW-data=4 ZI-data=0  
+".\lab4.1e" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab4.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=44 RW-data=4 ZI-data=0  
+".\lab4.1e" - 0 Errors, 1 Warning(s).
+Build target 'Target 1'
+linking...
+.\lab4.sct(8): warning: L6314W: No section matches pattern *(InRoot$$Sections).
+Program Size: Code=56 RO-data=44 RW-data=4 ZI-data=0  
+".\lab4.1e" - 0 Errors, 1 Warning(s).
